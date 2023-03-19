@@ -1,0 +1,84 @@
+[
+  {
+    "id": "avian",
+    "impact": "LOW",
+
+    "icon": {
+      "name": "Avian",
+      "desc": "A member of the class Aves, Avians are a descendent of harpies.",
+      "color": "GRAY",
+      "material": "FEATHER"
+    },
+
+    "traits": [
+      {
+        "id": "dietary-restriction",
+        "args": [
+          "VEGETARIAN"
+        ]
+      },
+
+      {
+        "id": "perm-effect",
+        "args": [
+          "Lightness",
+          "Because of your light weight, you fall slowly.",
+          "POSITIVE",
+          "WHITE",
+          "SLOW_FALLING",
+          0
+        ]
+      },
+
+      {
+        "id": "perm-effect",
+        "args": [
+          "Quickness",
+          "Because of your light weight, you move just a bit quicker.",
+          "POSITIVE",
+          "YELLOW",
+          "SPEED",
+          0
+        ]
+      },
+
+      {
+        "id": "roost"
+      }
+    ]
+  },
+
+  {
+    "id": "enderian",
+    "impact": "MEDIUM",
+
+    "icon": {
+      "color": "DARK_PURPLE",
+      "desc": "Enderians are a close relative of Endermen, and because of this, they share lots of common behavior.",
+      "material": "ENDER_PEARL",
+      "name": "Enderian"
+    },
+
+    "traits": [
+      { "id": "teleportable" },
+
+      {
+        "id": "aggroless-trait",
+
+        "args": [
+          "Kin to Endermen",
+          "LIGHT_PURPLE",
+          "Because of your relation to Endermen, you are permitted to peacefully coexist with them.",
+          "ENDER_EYE",
+          "ENDERMAN"
+        ]
+      },
+
+      { "id": "silk-hands" },
+
+      { "id": "hydrophobic" },
+
+      { "id": "gourdophobic" }
+    ]
+  }
+]

@@ -1,0 +1,105 @@
+{
+  "type": "array",
+  "items": {
+    "$ref": "#/definitions/Origin"
+  },
+  "definitions": {
+    "Origin": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "description": "The unique String ID for the origin.",
+          "type": "string"
+        },
+        "impact": {
+          "description": "The impact of the Origin.",
+          "type": "string"
+        },
+        "icon": {
+          "$ref": "#/definitions/Icon"
+        },
+        "traits": {
+          "type": "array",
+          "description": "The traits of the Origin.",
+          "items": {
+            "$ref": "#/definitions/Trait"
+          },
+
+          "minItems": 1
+        }
+      },
+      "required": [
+        "icon",
+        "id",
+        "impact",
+        "traits"
+      ],
+      "title": "Origin"
+    },
+    "Icon": {
+      "type": "object",
+      "description": "The item to represent the Origin in the Origin Picker.",
+      "additionalProperties": false,
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "The name of the item."
+        },
+        "desc": {
+          "type": "string",
+          "description": "The description of the item."
+        },
+        "color": {
+          "type": "string",
+          "description": "The color of the name of the icon."
+        },
+        "material": {
+          "type": "string",
+          "description": "The item type of the icon."
+        }
+      },
+      "required": [
+        "color",
+        "desc",
+        "material",
+        "name"
+      ],
+      "title": "Icon"
+    },
+    "Trait": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "The string ID of the trait."
+        },
+        "args": {
+          "type": "array",
+          "description": "The arguments to pass into the trait.",
+          "items": {
+            "$ref": "#/definitions/Arg"
+          },
+          "minItems": 1
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "title": "Trait"
+    },
+    "Arg": {
+      "description": "An argument to be passed into a trait.",
+      "anyOf": [
+        {
+          "type": "integer"
+        },
+        {
+          "type": "string"
+        }
+      ],
+      "title": "Arg"
+    }
+  }
+}

@@ -1,0 +1,7 @@
+name: Origins
+version: '${project.version}'
+main: io.github.djtpj.origins.Main
+api-version: 1.19
+prefix: Origins
+authors: [Djtpj]
+description: A fun plugin that adds several new ways to play the game!
