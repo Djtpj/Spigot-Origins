@@ -4,6 +4,9 @@ import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
 
+/**
+ * A CompoundAbility is a way to combine several {@link Ability Abilities} into one that is viewed as such in the {@link io.github.djtpj.gui.OriginPicker OriginPicker}
+ */
 public abstract class CompoundAbility extends Trait {
     public final static String ID = "compound-ability";
 
