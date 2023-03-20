@@ -17,6 +17,9 @@ import java.util.logging.Level;
 
 import static io.github.djtpj.origin.Main.plugin;
 
+/** An Origin is a collection of Traits as defined by the "origins.json" file
+ *
+ */
 @Getter
 public class Origin {
     private final String id;
@@ -24,6 +27,16 @@ public class Origin {
     private final ItemIcon icon;
     private final Trait[] traits;
 
+    /**
+     * @param object The JSONObject to define this origin with
+     * @throws NoSuchMethodException Thrown if a trait does not possess a constructor that matches the arguments it was passed
+     * @throws InvocationTargetException Thrown if a trait's constructor throws an error
+     * @throws InstantiationException Thrown if an abstract trait is attempted to be instantiated
+     * @throws IllegalAccessException Thrown if a trait's constructor is not public
+     * @throws IllDefinedTraitException Thrown in a trait does not possess the required static ID field
+     * @see Trait
+     * @see JSONObject
+     */
     public Origin(JSONObject object) throws NoSuchMethodException, InvocationTargetException, InstantiationException, IllegalAccessException, IllDefinedTraitException {
         id = (String) object.get("id");
         impact = Impact.valueOf(((String) object.get("impact")).toUpperCase());
@@ -64,16 +77,25 @@ public class Origin {
         this.traits = traits.toArray(new Trait[0]);
     }
 
+    /**
+     * @return Returns the formatted name of the Origin
+     */
     public String getName() {
         return icon.getColor() + icon.getName();
     }
 
+    /** Enables all of the Origin's traits for a specific player
+     * @param player the player to enable the traits for
+     */
     public void enable(Player player) {
         for (Trait trait : traits) {
             trait.enable(player);
         }
     }
 
+    /** Disables all of the Origin's traits for a specific player
+     * @param player the player to disable the traits for
+     */
     public void disable(Player player) {
         for (Trait trait : traits) {
             trait.disable(player);
@@ -90,6 +112,9 @@ public class Origin {
         return results.toArray(new Class[0]);
     }
 
+    /**
+     * @return All the traits, including the traits inside a {@link io.github.djtpj.trait.CompoundAbility}.
+     */
     public Trait[] getAllTraits() {
         ArrayList<Trait> results = new ArrayList<>(Arrays.asList(traits));
 
