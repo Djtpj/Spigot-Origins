@@ -3,6 +3,9 @@ package io.github.djtpj.origin;
 import java.util.ArrayList;
 import java.util.Objects;
 
+/**
+ * The Static Registry of all {@link Origin}s as defined in the {@code origins.json} file.
+ */
 public class OriginRegistry {
     private static OriginRegistry instance;
 

@@ -7,6 +7,9 @@ import java.util.ArrayList;
 import java.util.Objects;
 import java.util.Set;
 
+/**
+ * Static Registry of all the {@link Trait}s' classes as gotten by a static reflection call
+ */
 public class TraitRegistry {
     public static final Class<? extends Trait>[] registry;
 
