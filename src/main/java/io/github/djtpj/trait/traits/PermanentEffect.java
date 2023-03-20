@@ -6,12 +6,10 @@ import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.event.player.PlayerEvent;
-import org.bukkit.metadata.FixedMetadataValue;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
 
-import static io.github.djtpj.origin.Main.plugin;
-
+/** A PermanentEffect is an ability that constantly applies a potion effect */
 public class PermanentEffect extends RunnableAbility<PlayerEvent> {
     public static final String ID = "perm-effect";
 
@@ -22,14 +20,13 @@ public class PermanentEffect extends RunnableAbility<PlayerEvent> {
     }
 
     protected PermanentEffect(String name, String description, ChatColor color, Type type, PotionEffectType effectType, int amplifier) {
-        super(name, description, color, Material.POTION, type, new PlayerAuthenticator(null));
+        super(name, description, color, Material.POTION, type, new PlayerAuthenticator(null), 60);
 
-        this.effect = new PotionEffect(effectType, Integer.MAX_VALUE, amplifier, false, false);
+        this.effect = new PotionEffect(effectType, 200, amplifier, false, false);
     }
 
     private void effect(Player player) {
         player.addPotionEffect(effect);
-        player.setMetadata(ID, new FixedMetadataValue(plugin, effect.getType()));
     }
 
     private void removeEffect(Player player) {
