@@ -6,14 +6,16 @@ import lombok.Getter;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
+import org.bukkit.event.Event;
+import org.bukkit.event.Listener;
 
 @Getter
-public abstract class Trait {
-    private final ItemIcon icon;
-    private final Type type;
-    private final Authenticator<?> authenticator;
+public abstract class Trait <T extends Event> implements Listener {
+    protected final ItemIcon icon;
+    protected final Type type;
+    protected final Authenticator<? super T> authenticator;
 
-    protected Trait(String name, String description, ChatColor color, Material material, Type type, Authenticator authenticator) {
+    protected Trait(String name, String description, ChatColor color, Material material, Type type, Authenticator<? super T> authenticator) {
         this.authenticator = authenticator;
         authenticator.setAssociatedTrait(this);
 

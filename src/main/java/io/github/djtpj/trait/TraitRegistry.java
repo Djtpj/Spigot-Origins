@@ -11,7 +11,7 @@ public class TraitRegistry {
     public static final Class<? extends Trait>[] registry;
 
     static {
-        Reflections reflections = new Reflections("io.github.djtpj.traits");
+        Reflections reflections = new Reflections("io.github.djtpj.trait.traits");
         Set<Class<? extends Trait>> classes = reflections.getSubTypesOf(Trait.class);
 
         ArrayList<Class<? extends Trait>> results = new ArrayList<>(classes);

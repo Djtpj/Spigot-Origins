@@ -53,6 +53,8 @@ public class Origin {
                 trait = traitClass.getConstructor(argTypes).newInstance(args);
             }
 
+            plugin.getServer().getPluginManager().registerEvents(trait, plugin);
+
             traits.add(trait);
         }
 
