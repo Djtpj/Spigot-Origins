@@ -10,6 +10,10 @@ import org.bukkit.event.Listener;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+/**
+ * A Trait is a class that simply defines behavior for an {@link io.github.djtpj.origin.Origin Origin}
+ * @see io.github.djtpj.origin.Origin
+ */
 @Getter
 public abstract class Trait implements Listener {
     public final static HashMap<Player, ArrayList<Trait>> playerTraitMap = new HashMap<>();
@@ -18,7 +22,8 @@ public abstract class Trait implements Listener {
     protected final Type type;
 
     protected Trait(String name, String description, ChatColor color, Material material, Type type) {
-        this.icon = new ItemIcon(name, description, color, material);
+        this.icon = new ItemIcon(name, description + "\n\n" + type, color, material);
+
         this.type = type;
     }
 
@@ -32,9 +37,23 @@ public abstract class Trait implements Listener {
     }
     protected void onDisable(Player player) {}
 
+    /**
+     * Shows whether a Trait is Positive, Negative, or Neutral
+     */
     public enum Type {
-        POSITIVE,
-        NEUTRAL,
-        NEGATIVE
+        POSITIVE(ChatColor.GREEN),
+        NEUTRAL(ChatColor.YELLOW),
+        NEGATIVE(ChatColor.RED);
+
+        private final ChatColor color;
+
+        Type(ChatColor color) {
+            this.color = color;
+        }
+
+        @Override
+        public String toString() {
+            return color + super.toString();
+        }
     }
 }
