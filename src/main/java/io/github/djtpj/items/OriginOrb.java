@@ -1,6 +1,7 @@
 package io.github.djtpj.items;
 
 import io.github.djtpj.authenticator.authenticators.InteractAuthenticator;
+import io.github.djtpj.authenticator.authenticators.ItemInteractionAuthenticator;
 import io.github.djtpj.gui.OriginPicker;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
@@ -42,7 +43,7 @@ public class OriginOrb extends ItemStack implements Listener {
 
     @EventHandler
     public void changeOrigin(PlayerInteractEvent event) {
-        InteractAuthenticator authenticator = new InteractAuthenticator(this, false, null, Action.RIGHT_CLICK_AIR, Action.RIGHT_CLICK_BLOCK);
+        InteractAuthenticator authenticator = new ItemInteractionAuthenticator(this, false, null, Action.RIGHT_CLICK_AIR, Action.RIGHT_CLICK_BLOCK);
 
         if (!authenticator.authenticate(event)) {
             return;
