@@ -21,6 +21,7 @@ import java.util.HashMap;
 public class OriginPane implements Listener {
     private final static int BACK_BUTTON_INDEX = 45;
     private final static int SELECT_BUTTON_INDEX = 53;
+    private final static int ORIGIN_ICON_INDEX = 49;
     private final static HashMap<Player, OriginPane> playerMap = new HashMap<>();
 
     private final Origin origin;
@@ -37,6 +38,9 @@ public class OriginPane implements Listener {
 
         placeTraits();
         backButton();
+        impactIndicators();
+        // Add Origin Icon
+        inventory.setItem(ORIGIN_ICON_INDEX, origin.getIcon());
         selectButton();
         GuiUtils.populateEmptySlots(inventory);
 
@@ -75,6 +79,23 @@ public class OriginPane implements Listener {
         ItemStack button = new ItemIcon("Select", null, ChatColor.GREEN, Material.BEACON);
 
         inventory.setItem(SELECT_BUTTON_INDEX, button);
+    }
+
+    private void impactIndicators() {
+        ItemStack indicator = origin.getImpact().getIcon();
+
+        int[] paneLocations = {
+                52,
+                51,
+                50,
+                48,
+                47,
+                46,
+        };
+
+        for (int i : paneLocations) {
+            inventory.setItem(i, origin.getImpact().getIcon());
+        }
     }
 
     @EventHandler
