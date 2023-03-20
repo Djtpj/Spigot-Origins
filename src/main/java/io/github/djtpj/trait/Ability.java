@@ -8,6 +8,9 @@ import org.bukkit.event.Event;
 
 import javax.annotation.Nullable;
 
+/** An Ability is a single Trait that performs one method on a specific event
+ * @param <T> the Event to listen to and authenticate
+ */
 @Getter
 public abstract class Ability<T extends Event> extends Trait {
     public final static String ID = "ability";
