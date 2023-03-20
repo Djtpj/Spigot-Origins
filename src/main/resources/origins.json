@@ -19,27 +19,7 @@
       },
 
       {
-        "id": "perm-effect",
-        "args": [
-          "Lightness",
-          "Because of your light weight, you fall slowly.",
-          "POSITIVE",
-          "WHITE",
-          "SLOW_FALLING",
-          0
-        ]
-      },
-
-      {
-        "id": "perm-effect",
-        "args": [
-          "Quickness",
-          "Because of your light weight, you move just a bit quicker.",
-          "POSITIVE",
-          "YELLOW",
-          "SPEED",
-          0
-        ]
+        "id": "frail-body"
       },
 
       {

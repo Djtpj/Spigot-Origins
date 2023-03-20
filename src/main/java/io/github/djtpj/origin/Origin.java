@@ -1,15 +1,18 @@
 package io.github.djtpj.origin;
 
+import io.github.djtpj.trait.CompoundAbility;
 import io.github.djtpj.trait.IllDefinedTraitException;
 import io.github.djtpj.trait.Trait;
 import io.github.djtpj.trait.TraitRegistry;
 import io.github.djtpj.ui.ItemIcon;
 import lombok.Getter;
+import org.bukkit.entity.Player;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
 import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.logging.Level;
 
 import static io.github.djtpj.origin.Main.plugin;
@@ -65,6 +68,18 @@ public class Origin {
         return icon.getColor() + icon.getName();
     }
 
+    public void enable(Player player) {
+        for (Trait trait : traits) {
+            trait.enable(player);
+        }
+    }
+
+    public void disable(Player player) {
+        for (Trait trait : traits) {
+            trait.disable(player);
+        }
+    }
+
     private static Class<?>[] getArgTypes(Object[] args) {
         ArrayList<Class<Object>> results = new ArrayList<>();
 
@@ -73,5 +88,17 @@ public class Origin {
         }
 
         return results.toArray(new Class[0]);
+    }
+
+    public Trait[] getAllTraits() {
+        ArrayList<Trait> results = new ArrayList<>(Arrays.asList(traits));
+
+        for (Trait trait : traits) {
+            if (!(trait instanceof CompoundAbility ability)) continue;
+
+            results.addAll(Arrays.asList(ability.getTraits()));
+        }
+
+        return results.toArray(new Trait[0]);
     }
 }

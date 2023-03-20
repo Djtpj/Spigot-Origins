@@ -42,7 +42,7 @@ public class OriginOrb extends ItemStack implements Listener {
 
     @EventHandler
     public void changeOrigin(PlayerInteractEvent event) {
-        InteractAuthenticator authenticator = new InteractAuthenticator(this, false, Action.RIGHT_CLICK_AIR, Action.RIGHT_CLICK_BLOCK);
+        InteractAuthenticator authenticator = new InteractAuthenticator(this, false, null, Action.RIGHT_CLICK_AIR, Action.RIGHT_CLICK_BLOCK);
 
         if (!authenticator.authenticate(event)) {
             return;
