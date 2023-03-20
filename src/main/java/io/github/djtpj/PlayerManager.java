@@ -1,13 +1,13 @@
 package io.github.djtpj;
 
-import io.github.djtpj.origins.Origin;
-import io.github.djtpj.origins.OriginRegistry;
+import io.github.djtpj.origin.Origin;
+import io.github.djtpj.origin.OriginRegistry;
 import org.bukkit.entity.Player;
 import org.bukkit.metadata.FixedMetadataValue;
 
 import java.util.Objects;
 
-import static io.github.djtpj.origins.Main.plugin;
+import static io.github.djtpj.origin.Main.plugin;
 
 public class PlayerManager {
     private final static String ORIGIN_META_KEY = "playerOrigin";

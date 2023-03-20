@@ -1,7 +1,7 @@
 package io.github.djtpj.gui;
 
 import io.github.djtpj.PlayerManager;
-import io.github.djtpj.origins.Origin;
+import io.github.djtpj.origin.Origin;
 import io.github.djtpj.trait.Trait;
 import io.github.djtpj.ui.ItemIcon;
 import lombok.Getter;

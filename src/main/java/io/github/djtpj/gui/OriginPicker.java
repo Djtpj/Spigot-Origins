@@ -1,8 +1,8 @@
 package io.github.djtpj.gui;
 
 import io.github.bananapuncher714.nbteditor.NBTEditor;
-import io.github.djtpj.origins.Origin;
-import io.github.djtpj.origins.OriginRegistry;
+import io.github.djtpj.origin.Origin;
+import io.github.djtpj.origin.OriginRegistry;
 import io.github.djtpj.ui.ItemIcon;
 import lombok.Getter;
 import org.bukkit.Bukkit;
@@ -18,7 +18,7 @@ import org.bukkit.inventory.ItemStack;
 import java.util.HashMap;
 import java.util.logging.Level;
 
-import static io.github.djtpj.origins.Main.plugin;
+import static io.github.djtpj.origin.Main.plugin;
 
 @Getter
 public class OriginPicker implements Listener {

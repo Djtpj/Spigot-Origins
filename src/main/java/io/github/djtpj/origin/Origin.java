@@ -1,4 +1,4 @@
-package io.github.djtpj.origins;
+package io.github.djtpj.origin;
 
 import io.github.djtpj.trait.IllDefinedTraitException;
 import io.github.djtpj.trait.Trait;
@@ -12,7 +12,7 @@ import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 import java.util.logging.Level;
 
-import static io.github.djtpj.origins.Main.plugin;
+import static io.github.djtpj.origin.Main.plugin;
 
 @Getter
 public class Origin {

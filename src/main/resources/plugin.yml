@@ -1,6 +1,6 @@
 name: Origins
 version: '${project.version}'
-main: io.github.djtpj.origins.Main
+main: io.github.djtpj.origin.Main
 api-version: 1.19
 prefix: Origins
 authors: [Djtpj]

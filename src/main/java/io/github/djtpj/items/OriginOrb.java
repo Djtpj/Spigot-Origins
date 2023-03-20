@@ -18,7 +18,7 @@ import org.bukkit.inventory.meta.ItemMeta;
 
 import java.util.Arrays;
 
-import static io.github.djtpj.origins.Main.plugin;
+import static io.github.djtpj.origin.Main.plugin;
 
 public class OriginOrb extends ItemStack implements Listener {
     private final static String NAMESPACE_KEY = "orb_of_origin";

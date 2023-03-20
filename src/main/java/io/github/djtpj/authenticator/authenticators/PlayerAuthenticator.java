@@ -2,7 +2,7 @@ package io.github.djtpj.authenticator.authenticators;
 
 import io.github.djtpj.PlayerManager;
 import io.github.djtpj.authenticator.Authenticator;
-import io.github.djtpj.origins.Origin;
+import io.github.djtpj.origin.Origin;
 import io.github.djtpj.trait.Trait;
 import org.bukkit.entity.Player;
 import org.bukkit.event.player.PlayerEvent;

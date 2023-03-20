@@ -1,4 +1,4 @@
-package io.github.djtpj.origins;
+package io.github.djtpj.origin;
 
 import java.util.ArrayList;
 import java.util.Objects;

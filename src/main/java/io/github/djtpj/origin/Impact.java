@@ -1,4 +1,4 @@
-package io.github.djtpj.origins;
+package io.github.djtpj.origin;
 
 import io.github.djtpj.gui.GuiUtils;
 import lombok.Getter;
