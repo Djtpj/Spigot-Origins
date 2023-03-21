@@ -26,39 +26,5 @@
         "id": "roost"
       }
     ]
-  },
-
-  {
-    "id": "enderian",
-    "impact": "MEDIUM",
-
-    "icon": {
-      "color": "DARK_PURPLE",
-      "desc": "Enderians are a close relative of Endermen, and because of this, they share lots of common behavior.",
-      "material": "ENDER_PEARL",
-      "name": "Enderian"
-    },
-
-    "traits": [
-      { "id": "teleportable" },
-
-      {
-        "id": "aggroless-trait",
-
-        "args": [
-          "Kin to Endermen",
-          "LIGHT_PURPLE",
-          "Because of your relation to Endermen, you are permitted to peacefully coexist with them.",
-          "ENDER_EYE",
-          "ENDERMAN"
-        ]
-      },
-
-      { "id": "silk-hands" },
-
-      { "id": "hydrophobic" },
-
-      { "id": "gourdophobic" }
-    ]
   }
 ]
