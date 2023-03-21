@@ -10,13 +10,13 @@ import org.bukkit.event.player.PlayerEvent;
 
 import java.util.Arrays;
 
-public class PlayerAuthenticator extends Authenticator<PlayerEvent> {
+public class PlayerAuthenticator <T extends PlayerEvent> extends Authenticator<T> {
     public PlayerAuthenticator(Ability ability) {
         super(ability);
     }
 
     @Override
-    public boolean authenticate(PlayerEvent event) {
+    public boolean authenticate(T event) {
         return playerHasTrait(event.getPlayer(), getAssociatedAbility());
     }
 

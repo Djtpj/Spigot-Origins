@@ -1,6 +1,5 @@
 package io.github.djtpj.authenticator.authenticators;
 
-import io.github.djtpj.authenticator.Authenticator;
 import io.github.djtpj.trait.Ability;
 import org.bukkit.event.block.Action;
 import org.bukkit.event.player.PlayerInteractEvent;
@@ -8,7 +7,7 @@ import org.bukkit.event.player.PlayerInteractEvent;
 import java.util.Arrays;
 
 /** Authenticates an Interact Event */
-public class InteractAuthenticator extends Authenticator<PlayerInteractEvent> {
+public class InteractAuthenticator extends PlayerAuthenticator<PlayerInteractEvent> {
     private final Action[] actions;
     private final boolean requiresSneaking;
 
@@ -26,6 +25,7 @@ public class InteractAuthenticator extends Authenticator<PlayerInteractEvent> {
     @Override
     public boolean authenticate(PlayerInteractEvent event) {
         if (!Arrays.asList(actions).contains(event.getAction())) return false;
-        return requiresSneaking && !event.getPlayer().isSneaking();
+
+        return !(requiresSneaking && !event.getPlayer().isSneaking());
     }
 }

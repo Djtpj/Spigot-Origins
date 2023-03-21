@@ -36,7 +36,7 @@ public class ItemInteractionAuthenticator extends InteractAuthenticator {
 
     @Override
     public boolean authenticate(PlayerInteractEvent event) {
-        if (Arrays.stream(items).anyMatch(i -> ItemComparer.compareItems(i, event.getItem()))) return true;
+        if (Arrays.stream(items).noneMatch(i -> ItemComparer.compareItems(i, event.getItem()))) return false;
 
         return super.authenticate(event);
     }
