@@ -57,16 +57,16 @@ public class Origin {
                 continue;
             }
 
-            Object[] args = (Object[]) jsonTrait.get("args");
+            JSONArray args = (JSONArray) jsonTrait.get("args");
 
             Trait trait;
-            if (args == null || args.length < 1) {
+            if (args == null || args.size() < 1) {
                 trait = traitClass.getConstructor().newInstance();
             }
 
             else {
-                Class<?>[] argTypes = getArgTypes(args);
-                trait = traitClass.getConstructor(argTypes).newInstance(args);
+                Class<?>[] argTypes = getArgTypes(args.toArray());
+                trait = traitClass.getConstructor(argTypes).newInstance(args.toArray());
             }
 
             plugin.getServer().getPluginManager().registerEvents(trait, plugin);
