@@ -16,7 +16,7 @@ public class Roost extends Ability<PlayerBedEnterEvent> {
     public static final String ID = "roost";
 
     public Roost() {
-        super("Roost", "You can only sleep at high altitudes", ChatColor.GRAY, Material.FEATHER, Type.NEGATIVE);
+        super("Roost", "You can only sleep at high altitudes", ChatColor.GRAY, Material.RED_BED, Type.NEGATIVE);
     }
 
     @EventHandler
