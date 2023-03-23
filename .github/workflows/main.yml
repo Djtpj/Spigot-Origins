@@ -1,21 +1,4 @@
-name: Deploy Javadoc
-
-on:
-  push:
-    branches:
-      - master
-      - main
-
-
-jobs:
-  publish:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - name: Deploy JavaDoc 🚀
-        uses: MathieuSoysal/Javadoc-publisher.yml@v2.0.4
-        with:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          javadoc-branch: javadoc
-          java-version: 17
-          target-folder: docs
+- name: Publish JavaDoc
+  # You may pin to the exact commit or the version.
+  # uses: ren130302/publish-javadoc@093c6bbee64b02a5df2b6772dfd11701a8ce1105
+  uses: ren130302/publish-javadoc@v1
