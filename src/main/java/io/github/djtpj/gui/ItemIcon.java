@@ -1,6 +1,5 @@
-package io.github.djtpj.ui;
+package io.github.djtpj.gui;
 
-import io.github.djtpj.gui.GuiUtils;
 import lombok.Getter;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;

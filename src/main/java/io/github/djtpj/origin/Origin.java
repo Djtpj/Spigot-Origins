@@ -4,7 +4,7 @@ import io.github.djtpj.trait.CompoundAbility;
 import io.github.djtpj.trait.IllDefinedTraitException;
 import io.github.djtpj.trait.Trait;
 import io.github.djtpj.trait.TraitRegistry;
-import io.github.djtpj.ui.ItemIcon;
+import io.github.djtpj.gui.ItemIcon;
 import lombok.Getter;
 import org.bukkit.entity.Player;
 import org.json.simple.JSONArray;

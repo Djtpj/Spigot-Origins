@@ -1,7 +1,7 @@
 package io.github.djtpj.origin;
 
 import io.github.djtpj.gui.GuiUtils;
-import io.github.djtpj.ui.ItemIcon;
+import io.github.djtpj.gui.ItemIcon;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.inventory.ItemStack;

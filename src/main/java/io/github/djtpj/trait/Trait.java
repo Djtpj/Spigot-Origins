@@ -1,6 +1,6 @@
 package io.github.djtpj.trait;
 
-import io.github.djtpj.ui.ItemIcon;
+import io.github.djtpj.gui.ItemIcon;
 import lombok.Getter;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;

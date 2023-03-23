@@ -3,7 +3,6 @@ package io.github.djtpj.gui;
 import io.github.bananapuncher714.nbteditor.NBTEditor;
 import io.github.djtpj.origin.Origin;
 import io.github.djtpj.origin.OriginRegistry;
-import io.github.djtpj.ui.ItemIcon;
 import lombok.Getter;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
