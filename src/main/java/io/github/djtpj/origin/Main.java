@@ -1,9 +1,9 @@
 package io.github.djtpj.origin;
 
 import io.github.djtpj.PlayerManager;
+import io.github.djtpj.cmd.OriginCommand;
 import io.github.djtpj.gui.OriginPane;
 import io.github.djtpj.gui.OriginPicker;
-import io.github.djtpj.items.OriginOrb;
 import io.github.djtpj.trait.IllDefinedTraitException;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
@@ -29,8 +29,8 @@ public final class Main extends JavaPlugin {
         Bukkit.getServer().getPluginManager().registerEvents(new OriginPicker(null), this);
         Bukkit.getServer().getPluginManager().registerEvents(new OriginPane(null, null), this);
 
-        // Register the recipe for this item.
-        Bukkit.addRecipe(OriginOrb.recipe());
+        getCommand("origin").setExecutor(new OriginCommand());
+        getCommand("origin").setTabCompleter(new OriginCommand());
 
         try {
             String json = getOriginJSON();

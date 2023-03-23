@@ -5,3 +5,14 @@ api-version: 1.19
 prefix: Origins
 authors: [Djtpj]
 description: A fun plugin that adds several new ways to play the game!
+
+commands:
+  origin:
+    description: The Spigot-Origins command to change your origin!
+    usage: "Usage: /origin"
+    permission: origin
+
+permissions:
+  origin:
+    description: "Allows you to use the origin command."
+    default: true
