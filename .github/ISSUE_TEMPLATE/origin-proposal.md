@@ -1,7 +1,7 @@
 ---
 name: Origin Proposal
-about: Request that someone program an Origin for you
-title: "[ORIGIN-REQUEST]"
+about: Propose / Request an Origin
+title: "[ORIGIN-PROPOSAL]"
 labels: origin request
 assignees: ''
 
