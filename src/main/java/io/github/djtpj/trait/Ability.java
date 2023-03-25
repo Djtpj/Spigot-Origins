@@ -19,8 +19,8 @@ public abstract class Ability<T extends Event> extends Trait {
         super(name, description, color, material, type);
     }
 
-    protected Ability(CompoundAbility ability) {
-        this(ability.icon.getName(), ability.icon.getDescription(), ability.icon.getColor(), ability.icon.getType(), ability.type);
+    protected Ability() {
+        super(null, null, null, null, null);
     }
 
     @Nullable

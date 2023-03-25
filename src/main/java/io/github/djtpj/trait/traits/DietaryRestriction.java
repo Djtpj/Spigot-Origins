@@ -3,7 +3,6 @@ package io.github.djtpj.trait.traits;
 import io.github.djtpj.authenticator.Authenticator;
 import io.github.djtpj.authenticator.authenticators.ItemConsumptionAuthenticator;
 import io.github.djtpj.trait.Ability;
-import io.github.djtpj.trait.CompoundAbility;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.event.EventHandler;
@@ -27,12 +26,6 @@ public class DietaryRestriction extends Ability<PlayerItemConsumeEvent> {
 
     public DietaryRestriction(String type) {
         this(RestrictionType.valueOf(type));
-    }
-
-    public DietaryRestriction(CompoundAbility ability, RestrictionType restrictionType) {
-        super(ability);
-
-        this.restrictionType = restrictionType;
     }
 
     @Nullable
