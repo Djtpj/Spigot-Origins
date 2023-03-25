@@ -9,6 +9,7 @@ import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.event.Event;
 
+import javax.annotation.Nullable;
 import java.util.Arrays;
 import java.util.Map;
 
@@ -18,15 +19,15 @@ import static io.github.djtpj.origin.Main.plugin;
 public abstract class RunnableAbility <T extends Event> extends Ability<T> {
     public static final String ID = "runnable-ability";
 
-    protected RunnableAbility(String name, String description, ChatColor color, Material material, Type type, Authenticator<T> authenticator) {
-        this(name, description, color, material, type, authenticator, 0, 10);
+    protected RunnableAbility(String name, String description, ChatColor color, Material material, Type type) {
+        this(name, description, color, material, type, 0, 10);
     }
 
-    protected RunnableAbility(String name, String description, ChatColor color, Material material, Type type, Authenticator<T> authenticator,  int loop) {
-        this(name, description, color, material, type, authenticator, 0, loop);
+    protected RunnableAbility(String name, String description, ChatColor color, Material material, Type type,  int loop) {
+        this(name, description, color, material, type, 0, loop);
     }
 
-    protected RunnableAbility(String name, String description, ChatColor color, Material material, Type type, Authenticator<T> authenticator, int delay, int loop) {
+    protected RunnableAbility(String name, String description, ChatColor color, Material material, Type type, int delay, int loop) {
         super(name, description, color, material, type);
 
         Bukkit.getScheduler().scheduleSyncRepeatingTask(plugin, this::tick, delay, loop);
@@ -51,5 +52,11 @@ public abstract class RunnableAbility <T extends Event> extends Ability<T> {
         return PlayerManager.getInstance().getPlayerOriginMap().entrySet().stream()
                 .filter((e) -> Arrays.stream(e.getValue().getAllTraits()).toList().contains(this))
                 .map(Map.Entry::getKey).toArray(Player[]::new);
+    }
+
+    @Nullable
+    @Override
+    protected Authenticator<? super T> getAuthenticator() {
+        return null;
     }
 }

@@ -1,7 +1,5 @@
 package io.github.djtpj.trait.traits;
 
-import io.github.djtpj.authenticator.Authenticator;
-import io.github.djtpj.authenticator.authenticators.PlayerAuthenticator;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
@@ -20,7 +18,7 @@ public class PermanentEffect extends RunnableAbility<PlayerEvent> {
     }
 
     protected PermanentEffect(String name, String description, ChatColor color, Type type, PotionEffectType effectType, int amplifier) {
-        super(name, description, color, Material.POTION, type, new PlayerAuthenticator(null), 60);
+        super(name, description, color, Material.POTION, type, 60);
 
         this.effect = new PotionEffect(effectType, 200, amplifier, false, false);
     }
@@ -41,10 +39,5 @@ public class PermanentEffect extends RunnableAbility<PlayerEvent> {
     @Override
     protected void onDisable(Player player) {
         removeEffect(player);
-    }
-
-    @Override
-    protected Authenticator<? super PlayerEvent> getAuthenticator() {
-        return null;
     }
 }
