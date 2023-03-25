@@ -23,14 +23,14 @@ public abstract class RunnableAbility <T extends Event> extends Ability<T> {
         this(name, description, color, material, type, 0, 10);
     }
 
-    protected RunnableAbility(String name, String description, ChatColor color, Material material, Type type,  int loop) {
-        this(name, description, color, material, type, 0, loop);
+    protected RunnableAbility(String name, String description, ChatColor color, Material material, Type type,  int loopTicks) {
+        this(name, description, color, material, type, 0, loopTicks);
     }
 
-    protected RunnableAbility(String name, String description, ChatColor color, Material material, Type type, int delay, int loop) {
+    protected RunnableAbility(String name, String description, ChatColor color, Material material, Type type, int delayTicks, int loopTicks) {
         super(name, description, color, material, type);
 
-        Bukkit.getScheduler().scheduleSyncRepeatingTask(plugin, this::tick, delay, loop);
+        Bukkit.getScheduler().scheduleSyncRepeatingTask(plugin, this::tick, delayTicks, loopTicks);
     }
 
     private void tick() {
