@@ -1,5 +1,5 @@
 ---
-name: Origin Request
+name: Origin Proposal
 about: Request that someone program an Origin for you
 title: "[ORIGIN-REQUEST]"
 labels: origin request
