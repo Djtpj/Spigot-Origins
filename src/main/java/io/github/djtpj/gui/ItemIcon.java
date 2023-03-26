@@ -15,13 +15,12 @@ public class ItemIcon extends ItemStack {
     private final String name, description;
     private final ChatColor color;
 
-    public ItemIcon(String name, @Nullable String description, ChatColor color, Material material) {
-        super(material);
+    public ItemIcon(@Nullable String name, @Nullable String description, @Nullable ChatColor color, @Nullable Material material) {
+        super((material == null) ? Material.DIAMOND : material);
 
-        this.name = name;
-        // Format the description as description text
-        this.description =  description;
-        this.color = color;
+        this.name = name == null ? "PLACEHOLDER ITEMICON NAME" : name;
+        this.description =  description == null ? "PLACEHOLDER ITEMICON DESCRIPTION" : description;
+        this.color = color == null ? ChatColor.WHITE : color;
 
         ItemMeta meta = getItemMeta();
         meta.setDisplayName(color + name);

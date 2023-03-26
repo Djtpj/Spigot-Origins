@@ -1,6 +1,7 @@
 package io.github.djtpj.authenticator;
 
 import io.github.djtpj.trait.Ability;
+import io.github.djtpj.trait.Trait;
 import lombok.Getter;
 import org.bukkit.event.Event;
 
@@ -11,13 +12,13 @@ import org.bukkit.event.Event;
  */
 public abstract class Authenticator<T extends Event> {
     @Getter
-    private final Ability associatedAbility;
+    private final Trait associatedTrait;
 
     /**
-     * @param associatedAbility the ability to associate with the Authenticator
+     * @param associatedTrait the ability to associate with the Authenticator
      */
-    protected Authenticator(Ability associatedAbility) {
-        this.associatedAbility = associatedAbility;
+    protected Authenticator(Trait associatedTrait) {
+        this.associatedTrait = associatedTrait;
     }
 
     /** Verifies weather a trait should run on an event

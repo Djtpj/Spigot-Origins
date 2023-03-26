@@ -97,6 +97,9 @@
         },
         {
           "type": "string"
+        },
+        {
+          "type": "array"
         }
       ],
       "title": "Arg"

@@ -3,6 +3,7 @@ package io.github.djtpj.trait;
 import org.reflections.Reflections;
 
 import java.lang.reflect.Field;
+import java.lang.reflect.Modifier;
 import java.util.ArrayList;
 import java.util.Objects;
 import java.util.Set;
@@ -24,6 +25,8 @@ public class TraitRegistry {
 
     public static Class<? extends Trait> getTrait(String id) throws IllDefinedTraitException {
         for (Class<? extends Trait> aClass : registry) {
+            if (aClass.isAnonymousClass() || Modifier.isAbstract(aClass.getModifiers())) continue;
+
             try {
                 Field idField = aClass.getDeclaredField("ID");
                 String classId = (String) idField.get(null);

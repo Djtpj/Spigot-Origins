@@ -12,17 +12,18 @@ public class MaterialInteractionAuthenticator extends InteractAuthenticator {
 
     /**
      * @param requiresSneaking  whether the player needs to be sneaking
+     * @param requiresItem     whether the item must be non-placeable, edible, or interactable to trigger the event
      * @param ability           the associated ability
      * @param requiredMaterials one of the materials required for the player to be holding
      * @param actions           the acceptable actions
      */
-    public MaterialInteractionAuthenticator(boolean requiresSneaking, Ability ability, Material[] requiredMaterials, Action... actions) {
-        super(requiresSneaking, ability, actions);
+    public MaterialInteractionAuthenticator(boolean requiresSneaking, boolean requiresItem, Ability ability, Material[] requiredMaterials, Action... actions) {
+        super(requiresSneaking, requiresItem, ability, actions);
         this.requiredMaterials = requiredMaterials;
     }
 
-    public MaterialInteractionAuthenticator(boolean requiresSneaking, Ability ability, Material requiredMaterial, Action... actions) {
-        this(requiresSneaking, ability, new Material[] {requiredMaterial}, actions);
+    public MaterialInteractionAuthenticator(boolean requiresSneaking, boolean requiresItem, Ability ability, Material requiredMaterial, Action... actions) {
+        this(requiresSneaking, requiresItem, ability, new Material[] {requiredMaterial}, actions);
     }
 
     @Override

@@ -1,13 +1,11 @@
 package io.github.djtpj.trait.traits;
 
 import io.github.djtpj.PlayerManager;
-import io.github.djtpj.authenticator.Authenticator;
 import io.github.djtpj.trait.Ability;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
-import org.bukkit.event.Event;
 
 import java.util.Arrays;
 import java.util.Map;
@@ -15,21 +13,31 @@ import java.util.Map;
 import static io.github.djtpj.origin.Main.plugin;
 
 /** A RunnableAbility is an ability that runs over and over again every ten ticks */
-public abstract class RunnableAbility <T extends Event> extends Ability<T> {
-    public static final String ID = "runnable-ability";
-
-    protected RunnableAbility(String name, String description, ChatColor color, Material material, Type type, Authenticator<T> authenticator) {
-        this(name, description, color, material, type, authenticator, 0, 10);
+public abstract class RunnableAbility extends Ability {
+    public RunnableAbility(String name, String description, ChatColor color, Material material, Type type) {
+        this(name, description, color, material, type, 0, 10);
     }
 
-    protected RunnableAbility(String name, String description, ChatColor color, Material material, Type type, Authenticator<T> authenticator,  int loop) {
-        this(name, description, color, material, type, authenticator, 0, loop);
+    public RunnableAbility(String name, String description, ChatColor color, Material material, Type type,  int loopTicks) {
+        this(name, description, color, material, type, 0, loopTicks);
     }
 
-    protected RunnableAbility(String name, String description, ChatColor color, Material material, Type type, Authenticator<T> authenticator, int delay, int loop) {
+    public RunnableAbility(String name, String description, ChatColor color, Material material, Type type, int delayTicks, int loopTicks) {
         super(name, description, color, material, type);
 
-        Bukkit.getScheduler().scheduleSyncRepeatingTask(plugin, this::tick, delay, loop);
+        Bukkit.getScheduler().scheduleSyncRepeatingTask(plugin, this::tick, delayTicks, loopTicks);
+    }
+
+    public RunnableAbility() {
+        this(null, null, null, null, null);
+    }
+
+    public RunnableAbility(int loopTicks) {
+        this(null, null, null, null, null, loopTicks);
+    }
+
+    public RunnableAbility(int delayTicks, int loopTicks) {
+        this(null, null, null, null, null, delayTicks, loopTicks);
     }
 
     private void tick() {
