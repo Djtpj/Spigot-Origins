@@ -70,5 +70,62 @@
         ]
       }
     ]
+  },
+
+  {
+    "id": "blazeborn",
+    "impact": "HIGH",
+
+    "icon": {
+      "name": "Blazeborn",
+      "desc": "The Blazeborn are a race of fire-loving warriors.",
+      "color": "GOLD",
+      "material": "BLAZE_POWDER"
+    },
+    "traits": [
+      {
+        "id": "perm-effect",
+        "args": [
+          "Fireborn",
+          "You are completely immune to all fire based damage.",
+          "GOLD",
+          "POSITIVE",
+          "FIRE_RESISTANCE",
+          0
+        ]
+      },
+
+      {
+        "id": "dimension-spawn",
+        "args": [
+          "Netherborn",
+          "You spawn in the Nether.",
+          "RED",
+          "NETHERRACK",
+          "NEGATIVE",
+          "world_nether"
+        ]
+      },
+
+      {
+        "id": "self-sustaining"
+      },
+
+      {
+        "id": "potion-immune",
+        "args": [
+          "High Body Temperature",
+          "You are unaffected by all Potion Effects.",
+          "DARK_RED",
+          "POTION",
+          "NEUTRAL",
+          ["FIRE_RESISTANCE"]
+        ]
+      },
+
+      {
+        "id": "hydrophobic"
+      }
+    ]
   }
 ]
