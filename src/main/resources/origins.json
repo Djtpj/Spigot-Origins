@@ -26,5 +26,49 @@
         "id": "roost"
       }
     ]
+  },
+
+  {
+    "id": "enderian",
+    "impact": "MEDIUM",
+
+    "icon": {
+      "name": "Enderian",
+      "desc": "A member of the Ender race, Enderians share many characteristics and behavior with Endermen.",
+      "color": "DARK_PURPLE",
+      "material": "ENDER_PEARL"
+    },
+
+    "traits": [
+      {
+        "id": "hydrophobic"
+      },
+
+      {
+        "id": "spatial-jumper"
+      },
+
+      {
+        "id": "gourdophobic"
+      },
+
+      {
+        "id": "silky-hands"
+      },
+
+      {
+        "id": "pacify-mob",
+        "args": [
+          "Enderkin",
+          "You are so closely related to Endermen, that you cannot cause them to become angry with you.",
+          "LIGHT_PURPLE",
+          "ENDER_EYE",
+          "POSITIVE",
+          [
+            "ENDERMAN"
+          ]
+        ]
+      }
+    ]
   }
 ]
