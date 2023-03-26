@@ -1,22 +1,19 @@
 package io.github.djtpj.trait.traits;
 
 import io.github.djtpj.PlayerManager;
-import io.github.djtpj.authenticator.Authenticator;
 import io.github.djtpj.trait.Ability;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
-import org.bukkit.event.Event;
 
-import javax.annotation.Nullable;
 import java.util.Arrays;
 import java.util.Map;
 
 import static io.github.djtpj.origin.Main.plugin;
 
 /** A RunnableAbility is an ability that runs over and over again every ten ticks */
-public abstract class RunnableAbility <T extends Event> extends Ability<T> {
+public abstract class RunnableAbility extends Ability {
     public static final String ID = "runnable-ability";
 
     public RunnableAbility(String name, String description, ChatColor color, Material material, Type type) {
@@ -64,11 +61,5 @@ public abstract class RunnableAbility <T extends Event> extends Ability<T> {
         return PlayerManager.getInstance().getPlayerOriginMap().entrySet().stream()
                 .filter((e) -> Arrays.stream(e.getValue().getAllTraits()).toList().contains(this))
                 .map(Map.Entry::getKey).toArray(Player[]::new);
-    }
-
-    @Nullable
-    @Override
-    protected Authenticator<? super T> getAuthenticator() {
-        return null;
     }
 }

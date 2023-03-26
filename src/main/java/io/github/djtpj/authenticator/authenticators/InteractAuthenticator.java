@@ -26,6 +26,8 @@ public class InteractAuthenticator extends PlayerAuthenticator<PlayerInteractEve
     public boolean authenticate(PlayerInteractEvent event) {
         if (!Arrays.asList(actions).contains(event.getAction())) return false;
 
+        if (!playerHasTrait(event.getPlayer(), getAssociatedAbility())) return false;
+
         return !(requiresSneaking && !event.getPlayer().isSneaking());
     }
 }

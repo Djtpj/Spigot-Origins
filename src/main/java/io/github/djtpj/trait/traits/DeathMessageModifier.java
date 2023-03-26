@@ -7,10 +7,9 @@ import org.bukkit.Material;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.entity.PlayerDeathEvent;
 
-import javax.annotation.Nullable;
 import java.util.function.Predicate;
 
-public class DeathMessageModifier extends Ability<PlayerDeathEvent> {
+public class DeathMessageModifier extends Ability {
     public static final String ID = "death-message-modifier";
 
     private final Predicate<PlayerDeathEvent> predicate;
@@ -33,14 +32,8 @@ public class DeathMessageModifier extends Ability<PlayerDeathEvent> {
 
     @EventHandler
     public void changeMessage(PlayerDeathEvent event) {
-        if (!getAuthenticator().authenticate(event)) return;
+        if (!new PlayerDeathAuthenticator(this).authenticate(event)) return;
 
         event.setDeathMessage(message.replace("{p}", event.getEntity().getDisplayName()));
-    }
-
-    @Nullable
-    @Override
-    protected PlayerDeathAuthenticator getAuthenticator() {
-        return new PlayerDeathAuthenticator(this);
     }
 }

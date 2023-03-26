@@ -3,12 +3,11 @@ package io.github.djtpj.trait.traits;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
-import org.bukkit.event.player.PlayerEvent;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
 
 /** A PermanentEffect is an ability that constantly applies a potion effect */
-public class PermanentEffect extends RunnableAbility<PlayerEvent> {
+public class PermanentEffect extends RunnableAbility {
     public static final String ID = "perm-effect";
 
     private final PotionEffect effect;

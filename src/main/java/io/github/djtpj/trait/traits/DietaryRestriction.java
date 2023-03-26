@@ -1,6 +1,5 @@
 package io.github.djtpj.trait.traits;
 
-import io.github.djtpj.authenticator.Authenticator;
 import io.github.djtpj.authenticator.authenticators.ItemConsumptionAuthenticator;
 import io.github.djtpj.trait.Ability;
 import org.bukkit.ChatColor;
@@ -9,11 +8,10 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.player.PlayerItemConsumeEvent;
 
 import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
 
 import static org.bukkit.Material.*;
 
-public class DietaryRestriction extends Ability<PlayerItemConsumeEvent> {
+public class DietaryRestriction extends Ability {
     public static final String ID = "dietary-restriction";
 
     private final RestrictionType restrictionType;
@@ -28,15 +26,9 @@ public class DietaryRestriction extends Ability<PlayerItemConsumeEvent> {
         this(RestrictionType.valueOf(type));
     }
 
-    @Nullable
-    @Override
-    protected Authenticator<? super PlayerItemConsumeEvent> getAuthenticator() {
-        return new ItemConsumptionAuthenticator(this, restrictionType.bannedFood);
-    }
-
     @EventHandler
     public void preventEat(PlayerItemConsumeEvent event) {
-        if (!getAuthenticator().authenticate(event)) return;
+        if (!new ItemConsumptionAuthenticator(this, restrictionType.bannedFood).authenticate(event)) return;
 
         event.setCancelled(true);
     }

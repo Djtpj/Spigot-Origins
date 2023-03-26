@@ -1,6 +1,5 @@
 package io.github.djtpj.trait.traits;
 
-import io.github.djtpj.authenticator.Authenticator;
 import io.github.djtpj.authenticator.authenticators.PlayerAuthenticator;
 import io.github.djtpj.trait.Ability;
 import net.md_5.bungee.api.ChatMessageType;
@@ -11,7 +10,7 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.player.PlayerBedEnterEvent;
 
-public class Roost extends Ability<PlayerBedEnterEvent> {
+public class Roost extends Ability {
     private static final int MINIMUM_SLEEP_HEIGHT = 128;
     public static final String ID = "roost";
 
@@ -21,7 +20,7 @@ public class Roost extends Ability<PlayerBedEnterEvent> {
 
     @EventHandler
     public void preventSleep(PlayerBedEnterEvent event) {
-        if (!getAuthenticator().authenticate(event)) return;
+        if (!new PlayerAuthenticator(this).authenticate(event)) return;
 
         Player player = event.getPlayer();
 
@@ -30,10 +29,5 @@ public class Roost extends Ability<PlayerBedEnterEvent> {
             player.spigot().sendMessage(ChatMessageType.ACTION_BAR, TextComponent.fromLegacyText("You cannot sleep below altitude " + MINIMUM_SLEEP_HEIGHT));
             event.setCancelled(true);
         }
-    }
-
-    @Override
-    protected Authenticator<? super PlayerBedEnterEvent> getAuthenticator() {
-        return new PlayerAuthenticator(this);
     }
 }
