@@ -41,7 +41,7 @@ public abstract class Trait implements Listener {
         try {
             return (String) getClass().getField("ID").get(null);
         } catch (IllegalAccessException | NoSuchFieldException e) {
-            throw new RuntimeException(e);
+            return getClass().getSimpleName().toLowerCase();
         }
     }
 

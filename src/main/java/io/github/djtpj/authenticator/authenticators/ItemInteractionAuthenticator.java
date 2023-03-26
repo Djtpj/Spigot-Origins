@@ -15,23 +15,25 @@ public class ItemInteractionAuthenticator extends InteractAuthenticator {
     /**
      * @param items            the list of items that the player must hold one of
      * @param requiresSneaking whether the player needs to be sneaking
+     * @param requiresItem     whether the item must be non-placeable, edible, or interactable to trigger the event
      * @param ability          the associated ability
      * @param actions          the acceptable actions
      */
-    public ItemInteractionAuthenticator(ItemStack[] items, boolean requiresSneaking, Ability ability, Action... actions) {
-        super(requiresSneaking, ability, actions);
+    public ItemInteractionAuthenticator(ItemStack[] items, boolean requiresSneaking, boolean requiresItem, Ability ability, Action... actions) {
+        super(requiresSneaking, requiresItem, ability, actions);
 
         this.items = items;
     }
 
     /**
      * @param item the item the player must hold
-     * @param requiresSneaking whether the player needds to be sneaking
+     * @param requiresSneaking whether the player needs to be sneaking
+     * @param requiresItem     whether the item must be non-placeable, edible, or interactable to trigger the event
      * @param ability the associated ability
      * @param actions the acceptable actions
      */
-    public ItemInteractionAuthenticator(ItemStack item, boolean requiresSneaking, Ability ability, Action... actions) {
-        this(new ItemStack[] {item}, requiresSneaking, ability, actions);
+    public ItemInteractionAuthenticator(ItemStack item, boolean requiresSneaking, boolean requiresItem, Ability ability, Action... actions) {
+        this(new ItemStack[] {item}, requiresSneaking, requiresItem, ability, actions);
     }
 
     @Override
