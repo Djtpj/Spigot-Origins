@@ -22,14 +22,15 @@ public class PacifyMob extends Ability {
     }
 
     public PacifyMob(String name, String description, String color, String material, String type, JSONArray types) {
-        this(
+        super(
                 name,
                 description,
                 ChatColor.valueOf(color),
                 Material.valueOf(material),
-                Type.valueOf(type),
-                (EntityType[]) types.stream().map(o -> ((String) o).toUpperCase()).map(s -> EntityType.valueOf((String) s)).toArray(EntityType[]::new)
+                Type.valueOf(type)
         );
+
+        this.types = (EntityType[]) types.stream().map(o -> ((String) o).toUpperCase()).map(s -> EntityType.valueOf((String) s)).toArray(EntityType[]::new);
     }
 
     private static EntityType[] readTypes(JSONArray array) {

@@ -24,7 +24,7 @@ public class DeathMessageModifier extends Ability {
     }
 
     public DeathMessageModifier(Predicate<PlayerDeathEvent> predicate, String message) {
-        super(null, null, null, null, null);
+        super(null, null, (ChatColor) null, null, null);
 
         this.predicate = predicate;
         this.message = message;

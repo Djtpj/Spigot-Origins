@@ -22,7 +22,9 @@ public class DimensionSpawn extends Ability {
     }
 
     public DimensionSpawn(String name, String description, String color, String material, String type, String worldName) {
-        this(name, description, ChatColor.valueOf(color), Material.valueOf(material), Type.valueOf(type), worldName);
+        super(name, description, color, material, type);
+
+        spawnLocation = Bukkit.getWorld(worldName).getSpawnLocation();
     }
 
     @EventHandler
