@@ -1,6 +1,6 @@
 package io.github.djtpj.authenticator.authenticators;
 
-import io.github.djtpj.trait.Ability;
+import io.github.djtpj.trait.Trait;
 import org.bukkit.event.block.Action;
 import org.bukkit.event.player.PlayerInteractEvent;
 
@@ -13,11 +13,11 @@ public class InteractAuthenticator extends PlayerAuthenticator<PlayerInteractEve
 
     /**
      * @param requiresSneaking whether the player needs to be sneaking
-     * @param ability the associated ability
-     * @param actions the acceptable actions
+     * @param trait            the associated trait
+     * @param actions          the acceptable actions
      */
-    public InteractAuthenticator(boolean requiresSneaking, Ability ability, Action... actions) {
-        super(ability);
+    public InteractAuthenticator(boolean requiresSneaking, Trait trait, Action... actions) {
+        super(trait);
         this.requiresSneaking = requiresSneaking;
         this.actions = actions;
     }
@@ -26,7 +26,7 @@ public class InteractAuthenticator extends PlayerAuthenticator<PlayerInteractEve
     public boolean authenticate(PlayerInteractEvent event) {
         if (!Arrays.asList(actions).contains(event.getAction())) return false;
 
-        if (!playerHasTrait(event.getPlayer(), getAssociatedAbility())) return false;
+        if (!playerHasTrait(event.getPlayer(), getAssociatedTrait())) return false;
 
         return !(requiresSneaking && !event.getPlayer().isSneaking());
     }

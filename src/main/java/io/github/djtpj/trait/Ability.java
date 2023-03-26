@@ -9,8 +9,6 @@ import org.bukkit.Material;
  */
 @Getter
 public abstract class Ability extends Trait {
-    public final static String ID = "ability";
-
     protected Ability(String name, String description, ChatColor color, Material material, Trait.Type type) {
         super(name, description, color, material, type);
 

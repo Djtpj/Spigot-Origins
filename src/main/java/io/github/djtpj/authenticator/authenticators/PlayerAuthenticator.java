@@ -3,7 +3,6 @@ package io.github.djtpj.authenticator.authenticators;
 import io.github.djtpj.PlayerManager;
 import io.github.djtpj.authenticator.Authenticator;
 import io.github.djtpj.origin.Origin;
-import io.github.djtpj.trait.Ability;
 import io.github.djtpj.trait.Trait;
 import org.bukkit.entity.Player;
 import org.bukkit.event.player.PlayerEvent;
@@ -11,13 +10,13 @@ import org.bukkit.event.player.PlayerEvent;
 import java.util.Arrays;
 
 public class PlayerAuthenticator <T extends PlayerEvent> extends Authenticator<T> {
-    public PlayerAuthenticator(Ability ability) {
-        super(ability);
+    public PlayerAuthenticator(Trait trait) {
+        super(trait);
     }
 
     @Override
     public boolean authenticate(T event) {
-        return playerHasTrait(event.getPlayer(), getAssociatedAbility());
+        return playerHasTrait(event.getPlayer(), getAssociatedTrait());
     }
 
     public static boolean playerHasTrait(Player player, Trait trait) {

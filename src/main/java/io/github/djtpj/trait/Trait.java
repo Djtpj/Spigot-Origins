@@ -34,9 +34,13 @@ public abstract class Trait implements Listener {
     protected void register() {
         plugin.getServer().getPluginManager().registerEvents(this, plugin);
 
+        plugin.getLogger().log(Level.INFO, getID() + " registered as listener.");
+    }
+
+    public String getID() {
         try {
-            plugin.getLogger().log(Level.INFO, getClass().getField("ID").get(null) + " registered as listener.");
-        } catch (NoSuchFieldException | IllegalAccessException e) {
+            return (String) getClass().getField("ID").get(null);
+        } catch (IllegalAccessException | NoSuchFieldException e) {
             throw new RuntimeException(e);
         }
     }

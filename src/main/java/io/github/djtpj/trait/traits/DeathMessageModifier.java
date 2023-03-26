@@ -1,6 +1,6 @@
 package io.github.djtpj.trait.traits;
 
-import io.github.djtpj.authenticator.authenticators.PlayerDeathAuthenticator;
+import io.github.djtpj.authenticator.authenticators.EntityAuthenticator;
 import io.github.djtpj.trait.Ability;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
@@ -32,7 +32,7 @@ public class DeathMessageModifier extends Ability {
 
     @EventHandler
     public void changeMessage(PlayerDeathEvent event) {
-        if (!new PlayerDeathAuthenticator(this).authenticate(event)) return;
+        if (!new EntityAuthenticator(this).authenticate(event)) return;
 
         event.setDeathMessage(message.replace("{p}", event.getEntity().getDisplayName()));
     }

@@ -14,8 +14,6 @@ import static io.github.djtpj.origin.Main.plugin;
 
 /** A RunnableAbility is an ability that runs over and over again every ten ticks */
 public abstract class RunnableAbility extends Ability {
-    public static final String ID = "runnable-ability";
-
     public RunnableAbility(String name, String description, ChatColor color, Material material, Type type) {
         this(name, description, color, material, type, 0, 10);
     }
