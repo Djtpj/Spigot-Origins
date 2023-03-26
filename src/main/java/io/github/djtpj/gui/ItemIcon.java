@@ -3,6 +3,7 @@ package io.github.djtpj.gui;
 import lombok.Getter;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
+import org.bukkit.inventory.ItemFlag;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 import org.json.simple.JSONObject;
@@ -24,6 +25,8 @@ public class ItemIcon extends ItemStack {
 
         ItemMeta meta = getItemMeta();
         meta.setDisplayName(color + name);
+        // Add every item flag so that there is no unwanted info shown
+        meta.addItemFlags(ItemFlag.values());
         if (description != null && !description.isEmpty())
             meta.setLore(GuiUtils.wrap(Arrays.asList("", ChatColor.RESET + "" + ChatColor.DARK_GRAY + description)));
         setItemMeta(meta);
