@@ -31,6 +31,10 @@ public abstract class Trait implements Listener {
         this.type = type;
     }
 
+    protected Trait(String name, String description, String color, String material, String type) {
+        this(name, description, ChatColor.valueOf(color), Material.valueOf(material), Type.valueOf(type));
+    }
+
     protected void register() {
         plugin.getServer().getPluginManager().registerEvents(this, plugin);
 

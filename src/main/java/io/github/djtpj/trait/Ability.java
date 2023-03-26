@@ -15,7 +15,13 @@ public abstract class Ability extends Trait {
         register();
     }
 
+    protected Ability(String name, String description, String color, String material, String type) {
+        super(name, description, color, material, type);
+
+        register();
+    }
+
     protected Ability() {
-        this(null, null, null, null, null);
+        this(null, null, (ChatColor) null, null, null);
     }
 }

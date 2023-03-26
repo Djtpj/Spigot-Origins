@@ -12,14 +12,18 @@ public class PermanentEffect extends RunnableAbility {
 
     private final PotionEffect effect;
 
-    protected PermanentEffect(PotionEffectType effectType, int amplifier) {
+    public PermanentEffect(PotionEffectType effectType, int amplifier) {
         this(null, null, null, null, effectType, amplifier);
     }
 
-    protected PermanentEffect(String name, String description, ChatColor color, Type type, PotionEffectType effectType, int amplifier) {
+    public PermanentEffect(String name, String description, ChatColor color, Type type, PotionEffectType effectType, int amplifier) {
         super(name, description, color, Material.POTION, type, 60);
 
         this.effect = new PotionEffect(effectType, 200, amplifier, false, false);
+    }
+
+    public PermanentEffect(String name, String description, String color, String type, String effectType, Long amplifier) {
+        this(name, description, ChatColor.valueOf(color), Type.valueOf(type), PotionEffectType.getByName(effectType), (int) (long) amplifier);
     }
 
     private void effect(Player player) {
