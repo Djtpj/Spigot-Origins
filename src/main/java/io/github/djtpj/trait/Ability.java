@@ -17,10 +17,12 @@ public abstract class Ability<T extends Event> extends Trait {
 
     protected Ability(String name, String description, ChatColor color, Material material, Trait.Type type) {
         super(name, description, color, material, type);
+
+        register();
     }
 
     protected Ability() {
-        super(null, null, null, null, null);
+        this(null, null, null, null, null);
     }
 
     @Nullable

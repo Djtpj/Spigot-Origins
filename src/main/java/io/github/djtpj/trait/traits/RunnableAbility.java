@@ -19,18 +19,30 @@ import static io.github.djtpj.origin.Main.plugin;
 public abstract class RunnableAbility <T extends Event> extends Ability<T> {
     public static final String ID = "runnable-ability";
 
-    protected RunnableAbility(String name, String description, ChatColor color, Material material, Type type) {
+    public RunnableAbility(String name, String description, ChatColor color, Material material, Type type) {
         this(name, description, color, material, type, 0, 10);
     }
 
-    protected RunnableAbility(String name, String description, ChatColor color, Material material, Type type,  int loopTicks) {
+    public RunnableAbility(String name, String description, ChatColor color, Material material, Type type,  int loopTicks) {
         this(name, description, color, material, type, 0, loopTicks);
     }
 
-    protected RunnableAbility(String name, String description, ChatColor color, Material material, Type type, int delayTicks, int loopTicks) {
+    public RunnableAbility(String name, String description, ChatColor color, Material material, Type type, int delayTicks, int loopTicks) {
         super(name, description, color, material, type);
 
         Bukkit.getScheduler().scheduleSyncRepeatingTask(plugin, this::tick, delayTicks, loopTicks);
+    }
+
+    public RunnableAbility() {
+        this(null, null, null, null, null);
+    }
+
+    public RunnableAbility(int loopTicks) {
+        this(null, null, null, null, null, loopTicks);
+    }
+
+    public RunnableAbility(int delayTicks, int loopTicks) {
+        this(null, null, null, null, null, delayTicks, loopTicks);
     }
 
     private void tick() {
