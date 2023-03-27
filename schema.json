@@ -1431,6 +1431,9 @@
         },
         {
           "type": "array"
+        },
+        {
+          "type": "number"
         }
       ],
       "title": "Arg"
