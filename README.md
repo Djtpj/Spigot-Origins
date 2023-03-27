@@ -10,3 +10,5 @@ If you do not have an idea but still want to contribute, help someone else bring
 [![pages-build-deployment](https://github.com/Djtpj/Spigot-Origins/actions/workflows/pages/pages-build-deployment/badge.svg)](https://github.com/Djtpj/Spigot-Origins/actions/workflows/pages/pages-build-deployment)
 - [API Javadocs](https://djtpj.github.io/Spigot-Origins/index.html)
 - [Spigot Page](https://www.spigotmc.org/resources/spigot-origins.108780/)
+- [Original Mod by Apace100](https://www.curseforge.com/minecraft/mc-mods/origins)
+- [Similar Plugin by Lemony-Pancakes](https://github.com/LemonyPancakes/Origins-Bukkit)
