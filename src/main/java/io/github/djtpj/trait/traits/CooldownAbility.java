@@ -1,6 +1,7 @@
 package io.github.djtpj.trait.traits;
 
 import io.github.djtpj.trait.Ability;
+import io.github.djtpj.trait.UtilityAbility;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
@@ -12,6 +13,10 @@ import java.util.NoSuchElementException;
 
 import static io.github.djtpj.origin.Main.plugin;
 
+/**
+ * A CooldownAbility is an Ability that provides the tools to program in a cooldown.
+ */
+@UtilityAbility
 public abstract class CooldownAbility extends Ability {
     private final long cooldownTicks;
 
@@ -25,6 +30,9 @@ public abstract class CooldownAbility extends Ability {
         this.cooldownTicks = cooldownTicks;
     }
 
+    /** Begin the cooldown for a specific player
+     * @param player the player to initiate the cooldown for
+     */
     protected void startCooldown(Player player) {
         setCooldownReady(player, false);
 
@@ -36,6 +44,9 @@ public abstract class CooldownAbility extends Ability {
         }, cooldownTicks);
     }
 
+    /** Sends a standardized message to the player telling them that the cooldown is not finished.
+     * @param player the player to send the message to
+     */
     protected void sendCooldownMessage(Player player) {
         player.sendMessage(ChatColor.RED + "You cannot use that ability yet!");
     }
@@ -44,6 +55,10 @@ public abstract class CooldownAbility extends Ability {
         return getID() + "-cooldown";
     }
 
+    /** Check if the player's cooldown is over
+     * @param player the player to check
+     * @return whether the cooldown has ended
+     */
     protected boolean getCooldownReady(Player player) {
         try {
             return player.getMetadata(getTag()).stream().filter(m -> m.getOwningPlugin().equals(plugin)).findFirst().get().asBoolean();

@@ -2,6 +2,7 @@ package io.github.djtpj.trait.traits;
 
 import io.github.djtpj.authenticator.authenticators.EntityTargetAuthenticator;
 import io.github.djtpj.trait.Ability;
+import io.github.djtpj.trait.UtilityAbility;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.entity.EntityType;
@@ -11,6 +12,10 @@ import org.json.simple.JSONArray;
 
 import java.util.ArrayList;
 
+/**
+ * Makes a certain mob(s) unable to aggro on players.
+ */
+@UtilityAbility
 public class PacifyMob extends Ability {
     public static final String ID = "pacify-mob";
 

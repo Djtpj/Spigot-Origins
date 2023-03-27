@@ -2,6 +2,7 @@ package io.github.djtpj.trait.traits;
 
 import io.github.djtpj.authenticator.authenticators.ItemConsumptionAuthenticator;
 import io.github.djtpj.trait.Ability;
+import io.github.djtpj.trait.UtilityAbility;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.event.EventHandler;
@@ -11,6 +12,11 @@ import javax.annotation.Nonnull;
 
 import static org.bukkit.Material.*;
 
+/**
+ * DietaryRestriction is an ability that prevents a player from eating certain sets of food.
+ * @see RestrictionType
+ */
+@UtilityAbility
 public class DietaryRestriction extends Ability {
     public static final String ID = "dietary-restriction";
 
@@ -33,6 +39,10 @@ public class DietaryRestriction extends Ability {
         event.setCancelled(true);
     }
 
+    /**
+     * A RestrictionType is a predefined set of foods under an {@link io.github.djtpj.gui.ItemIcon}
+     * @see io.github.djtpj.gui.ItemIcon
+     */
     enum RestrictionType {
         VEGETARIAN(
                 "Vegetarian", "You cannot eat meat of any kind.", ChatColor.GREEN, CARROT,
