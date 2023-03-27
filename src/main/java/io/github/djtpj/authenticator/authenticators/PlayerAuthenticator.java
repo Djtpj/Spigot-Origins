@@ -22,6 +22,8 @@ public class PlayerAuthenticator <T extends PlayerEvent> extends Authenticator<T
     public static boolean playerHasTrait(Player player, Trait trait) {
         Origin origin = PlayerManager.getInstance().getOrigin(player);
 
+        if (origin == null) return false;
+
         return Arrays.asList(origin.getAllTraits()).contains(trait);
     }
 }

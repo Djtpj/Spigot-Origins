@@ -3,8 +3,9 @@ package io.github.djtpj;
 import io.github.djtpj.origin.Origin;
 import io.github.djtpj.origin.OriginRegistry;
 import org.bukkit.Bukkit;
+import org.bukkit.NamespacedKey;
 import org.bukkit.entity.Player;
-import org.bukkit.metadata.FixedMetadataValue;
+import org.bukkit.persistence.PersistentDataType;
 
 import java.util.HashMap;
 import java.util.Objects;
@@ -12,7 +13,7 @@ import java.util.Objects;
 import static io.github.djtpj.origin.Main.plugin;
 
 public class PlayerManager {
-    private final static String ORIGIN_META_KEY = "playerOrigin";
+    private final static NamespacedKey ORIGIN_META_KEY = new NamespacedKey(plugin, "playerOrigin");
 
     private static PlayerManager instance;
 
@@ -30,7 +31,7 @@ public class PlayerManager {
     public void setOrigin(Player player, Origin origin) {
         Origin oldOrigin = getOrigin(player);
         if (oldOrigin != null) oldOrigin.disable(player);
-        player.setMetadata(ORIGIN_META_KEY, new FixedMetadataValue(plugin, origin.getId()));
+        player.getPersistentDataContainer().set(ORIGIN_META_KEY, PersistentDataType.STRING, origin.getId());
         origin.enable(player);
     }
 
@@ -50,7 +51,7 @@ public class PlayerManager {
 
     public Origin getOrigin(Player player) {
         try {
-            String id = player.getMetadata(ORIGIN_META_KEY).get(0).asString();
+            String id = player.getPersistentDataContainer().get(ORIGIN_META_KEY, PersistentDataType.STRING);
 
             for (Origin origin : OriginRegistry.getInstance().registry()) {
                 if (Objects.equals(origin.getId(), id)) {

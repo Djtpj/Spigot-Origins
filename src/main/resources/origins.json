@@ -127,5 +127,52 @@
         "id": "hydrophobic"
       }
     ]
+  },
+
+  {
+    "id": "phantom",
+    "impact": "HIGH",
+
+    "icon": {
+      "name": "Phantom",
+      "desc": "The Phantoms are children of darkness and chaos.",
+      "color": "LIGHT_PURPLE",
+      "material": "PHANTOM_MEMBRANE"
+    },
+    "traits": [
+      {
+        "id": "pacify-mob",
+        "args": [
+          "Phantom Friend",
+          "Your phantom brethren have no interest in harming you.",
+          "DARK_PURPLE",
+          "PHANTOM_MEMBRANE",
+          "POSITIVE",
+          [
+            "PHANTOM"
+          ]
+        ]
+      },
+      
+      {
+        "id": "health-mod",
+        "args": [
+          "Weakness",
+          "You are small and frail, and therefore only have seven hearts.",
+          "DARK_RED",
+          "POTION",
+          "NEGATIVE",
+          14.0
+        ]
+      },
+
+      {
+        "id": "photosensitivity"
+      },
+
+      {
+        "id": "intangibility"
+      }
+    ]
   }
 ]

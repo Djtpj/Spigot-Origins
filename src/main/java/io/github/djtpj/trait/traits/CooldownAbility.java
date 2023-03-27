@@ -8,6 +8,8 @@ import org.bukkit.Sound;
 import org.bukkit.entity.Player;
 import org.bukkit.metadata.FixedMetadataValue;
 
+import java.util.NoSuchElementException;
+
 import static io.github.djtpj.origin.Main.plugin;
 
 public abstract class CooldownAbility extends Ability {
@@ -25,8 +27,6 @@ public abstract class CooldownAbility extends Ability {
 
     protected void startCooldown(Player player) {
         setCooldownReady(player, false);
-
-        player.sendMessage(getID());
 
         Bukkit.getScheduler().scheduleSyncDelayedTask(plugin, () -> {
             setCooldownReady(player, true);
@@ -46,8 +46,8 @@ public abstract class CooldownAbility extends Ability {
 
     protected boolean getCooldownReady(Player player) {
         try {
-            return player.getMetadata(getTag()).get(0).asBoolean();
-        } catch (IndexOutOfBoundsException ignored) {
+            return player.getMetadata(getTag()).stream().filter(m -> m.getOwningPlugin().equals(plugin)).findFirst().get().asBoolean();
+        } catch (NoSuchElementException ignored) {
             // This will be thrown if the cooldown hasn't been written yet, so return true
             return true;
         }
