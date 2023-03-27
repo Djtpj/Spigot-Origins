@@ -1,0 +1,1 @@
+packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html"},{"l":"io.github.djtpj"},{"l":"io.github.djtpj.authenticator"},{"l":"io.github.djtpj.authenticator.authenticators"},{"l":"io.github.djtpj.cmd"},{"l":"io.github.djtpj.gui"},{"l":"io.github.djtpj.origin"},{"l":"io.github.djtpj.trait"},{"l":"io.github.djtpj.trait.traits"}];updateSearchResults();
