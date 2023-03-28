@@ -65,6 +65,23 @@ public class DietaryRestriction extends Ability {
                 TROPICAL_FISH,
                 PUFFERFISH,
                 RABBIT_STEW
+        ),
+
+        PESCETARIAN(
+                "Pescetarian", "You can only eat fish and vegetables.", ChatColor.AQUA, COD,
+
+                BEEF,
+                COOKED_BEEF,
+                PORKCHOP,
+                COOKED_PORKCHOP,
+                CHICKEN,
+                COOKED_CHICKEN,
+                MUTTON,
+                COOKED_MUTTON,
+                RABBIT,
+                COOKED_RABBIT,
+                ROTTEN_FLESH,
+                RABBIT_STEW
         );
 
         public final String name, description;

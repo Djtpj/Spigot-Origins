@@ -174,5 +174,54 @@
         "id": "intangibility"
       }
     ]
+  },
+
+  {
+    "id": "drowned",
+    "impact": "MEDIUM",
+
+    "icon": {
+      "name": "Drowned",
+      "desc": "The undead reincarnation of a sailor lost at sea.",
+      "color": "AQUA",
+      "material": "TRIDENT"
+    },
+    "traits": [
+      {
+        "id": "photosensitivity"
+      },
+
+      {
+        "id": "perm-effect",
+        "args": [
+            "Sea Born",
+            "You are able to breath, mine, and see underwater.",
+            "DARK_AQUA",
+            "POSITIVE",
+            "CONDUIT_POWER",
+            0
+        ]
+      },
+
+      {
+        "id": "dietary-restriction",
+        "args": [
+          "PESCETARIAN"
+        ]
+      },
+
+      {
+        "id": "item-damage-mod",
+        "args": [
+          "Trident Handy",
+          "You are quite adept in trident based combat.",
+          "BLUE",
+          "TRIDENT",
+          "POSITIVE",
+          11.0,
+          "TRIDENT"
+        ]
+      }
+    ]
   }
 ]

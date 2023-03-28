@@ -37,7 +37,7 @@ public class DimensionSpawn extends Ability {
 
         if (event.isBedSpawn() || event.isAnchorSpawn()) return;
 
-        event.setRespawnLocation(dimension.spawnLocation);
+        event.setRespawnLocation(dimension.getSpawnLocation());
     }
 
     @Override
@@ -56,22 +56,24 @@ public class DimensionSpawn extends Ability {
     public enum Dimension {
         OVERWORLD("world"),
         NETHER("world_nether"),
-        END("world_end");
+        END("world_the_end");
 
         public final String worldName;
-        public final Location spawnLocation;
 
         Dimension(String worldName) {
             this.worldName = worldName;
-            this.spawnLocation = Bukkit.getWorld(worldName).getSpawnLocation();
+        }
+
+        public Location getSpawnLocation() {
+            return Bukkit.getWorld(worldName).getSpawnLocation();
         }
 
         public void teleport(Player player) {
-            player.teleport(spawnLocation);
+            player.teleport(getSpawnLocation());
         }
 
         public boolean playerIn(Player player) {
-            return player.getWorld().getName().equals(spawnLocation.getWorld().getName());
+            return player.getWorld().getName().equals(worldName);
         }
     }
 }
