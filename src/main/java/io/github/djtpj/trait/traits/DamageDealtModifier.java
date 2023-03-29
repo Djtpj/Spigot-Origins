@@ -37,6 +37,8 @@ public class DamageModifier extends Ability {
     public void modifyDamage(EntityDamageByEntityEvent event) {
         if (!new EntityAuthenticator<>(this, EntityDamageByEntityEvent::getDamager).authenticate(event)) return;
 
-        event.setDamage(damage);
+        if (shouldModify.test(event)) {
+            event.setDamage(damage);
+        }
     }
 }
