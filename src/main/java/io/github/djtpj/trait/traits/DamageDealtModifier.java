@@ -9,25 +9,25 @@ import org.bukkit.event.entity.EntityDamageByEntityEvent;
 
 import java.util.function.Predicate;
 
-public class DamageModifier extends Ability {
+public class DamageDealtModifier extends Ability {
     public static final String ID = "damage-mod";
 
     private final double damage;
     private final Predicate<EntityDamageByEntityEvent> shouldModify;
 
-    public DamageModifier(String name, String description, ChatColor color, Material material, Type type, Double damage, Predicate<EntityDamageByEntityEvent> shouldModify) {
+    public DamageDealtModifier(String name, String description, ChatColor color, Material material, Type type, Double damage, Predicate<EntityDamageByEntityEvent> shouldModify) {
         super(name, description, color, material, type);
         this.damage = damage;
         this.shouldModify = shouldModify;
     }
 
-    public DamageModifier(String name, String description, String color, String material, String type, Double damage, Predicate<EntityDamageByEntityEvent> shouldModify) {
+    public DamageDealtModifier(String name, String description, String color, String material, String type, Double damage, Predicate<EntityDamageByEntityEvent> shouldModify) {
         super(name, description, color, material, type);
         this.damage = damage;
         this.shouldModify = shouldModify;
     }
 
-    public DamageModifier(Double damage, Predicate<EntityDamageByEntityEvent> shouldModify) {
+    public DamageDealtModifier(Double damage, Predicate<EntityDamageByEntityEvent> shouldModify) {
         super();
         this.damage = damage;
         this.shouldModify = shouldModify;
