@@ -223,5 +223,74 @@
         ]
       }
     ]
+  },
+
+  {
+    "id": "metaphytian",
+    "impact": "HIGH",
+
+    "icon": {
+      "name": "Metaphytian",
+      "desc": "The Metaphytians are an old race of plant-like humanoids.",
+      "color": "GREEN",
+      "material": "OAK_SAPLING"
+    },
+    "traits": [
+      {
+        "id": "health-mod",
+        "args": [
+          "Weakness",
+          "You are light and frail, and therefore only have seven hearts.",
+          "DARK_RED",
+          "POTION",
+          "NEGATIVE",
+          14.0
+        ]
+      },
+
+      {
+        "id": "photosynthesis"
+      },
+
+      {
+        "id": "damage-taken-mod",
+        "args": [
+          "Flammable",
+          "As a primarily leaf based organism, you are highly susceptible to fire damage.",
+          "DARK_GREEN",
+          "FLINT_AND_STEEL",
+          "NEGATIVE",
+          4.0,
+          "FIRE_TICK"
+        ]
+      },
+
+      {
+        "id": "armor-restriction",
+        "args": [
+          [
+            "GOLDEN",
+            "CHAINMAIL",
+            "LEATHER"
+          ]
+        ]
+      },
+
+      {
+        "id": "interaction-blocker",
+        "args": [
+          "Unhandy",
+          "Your hands are ill-suited to using a shield.",
+          "GOLD",
+          "SHIELD",
+          "NEGATIVE",
+          "SHIELD",
+          [
+            "RIGHT_CLICK_BLOCK",
+            "RIGHT_CLICK_AIR"
+          ]
+        ]
+      }
+    ]
   }
 ]
