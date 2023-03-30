@@ -46,20 +46,13 @@ public class OriginPicker implements Listener {
     private void originIcons() {
         Origin[] origins = OriginRegistry.getInstance().registry();
 
-        for (int i = 0; i < origins.length; i++) {
-            final int startPos = 11;
-            final int rowLength = 7;
-            final int fullRowLength = 9;
-            final int marginSize = 2;
+        final int FULL_ROW = 9;
+        final int MARGIN = 2;
+        final int STARTING_ROW = 2, START_POSITION = (STARTING_ROW - 1) * FULL_ROW + MARGIN, ROW = FULL_ROW - (MARGIN * 2);
 
+        for (int i = 0; i < origins.length; i++) {
             // Calculate the position that the icon should be placed in.
-            int index =
-                    // Check if the origin is going to overflow into the margin
-                    ((i + startPos) - rowLength) % fullRowLength == 0 ?
-                            // If so go to new row
-                            i + startPos + (marginSize * 2) :
-                            // Otherwise just add one
-                            i + startPos;
+            int index = i >= ROW ? START_POSITION + i + (MARGIN * 2) : START_POSITION + i;
 
             Origin origin = origins[i];
 
