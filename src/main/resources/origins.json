@@ -119,7 +119,8 @@
           "DARK_RED",
           "POTION",
           "NEUTRAL",
-          ["FIRE_RESISTANCE"]
+          ["FIRE_RESISTANCE"],
+          true
         ]
       },
 
@@ -289,6 +290,63 @@
             "RIGHT_CLICK_BLOCK",
             "RIGHT_CLICK_AIR"
           ]
+        ]
+      }
+    ]
+  },
+
+  {
+    "id": "zombie",
+    "impact": "LOW",
+
+    "icon": {
+      "name": "Zombie",
+      "desc": "An undead explorer, cursed to forever wander never finding what they seek.",
+      "color": "DARK_GREEN",
+      "material": "ROTTEN_FLESH"
+    },
+
+    "traits": [
+      {
+        "id": "photosensitive"
+      },
+
+      {
+        "id": "perm-effect",
+        "args": [
+          "Combatant",
+          "You are well suited to melee combat.",
+          "RED",
+          "POSITIVE",
+          "INCREASE_DAMAGE",
+          0
+        ]
+      },
+
+      {
+        "id": "perm-effect",
+        "args": [
+          "Zombie Feet",
+          "Your feet are rotten and difficult to move quickly, as a result, you cannot run fast.",
+          "DARK_GREEN",
+          "NEGATIVE",
+          "SLOW",
+          0
+        ]
+      },
+
+      {
+        "id": "potion-immune",
+        "args": [
+          "Strong Stomach",
+          "Your stomach is strong, and you can never sustain the hunger effect.",
+          "DARK_GREEN",
+          "ROTTEN_FLESH",
+          "POSITIVE",
+          [
+            "HUNGER"
+          ],
+          false
         ]
       }
     ]

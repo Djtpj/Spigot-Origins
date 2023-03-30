@@ -31,9 +31,9 @@
         }
       },
       "required": [
-        "icon",
         "id",
         "impact",
+        "icon",
         "traits"
       ],
       "title": "Origin"
@@ -1391,10 +1391,10 @@
         }
       },
       "required": [
-        "color",
+        "name",
         "desc",
-        "material",
-        "name"
+        "color",
+        "material"
       ],
       "title": "Icon"
     },
@@ -1434,6 +1434,9 @@
         },
         {
           "type": "number"
+        },
+        {
+          "type": "boolean"
         }
       ],
       "title": "Arg"

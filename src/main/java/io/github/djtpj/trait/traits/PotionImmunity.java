@@ -19,25 +19,36 @@ import java.util.Arrays;
 public class PotionImmunity extends Ability {
     public static final String ID = "potion-immune";
 
-    private final PotionEffectType[] whitelisted;
+    private final PotionEffectType[] types;
+    private final boolean whitelist;
 
-    public PotionImmunity(String name, String description, ChatColor color, Material material, Type type, PotionEffectType... whitelisted) {
+    public PotionImmunity(String name, String description, ChatColor color, Material material, Type type, boolean whitelist, PotionEffectType... types) {
         super(name, description, color, material, type);
-        this.whitelisted = whitelisted;
+        this.whitelist = whitelist;
+        this.types = types;
     }
 
-    public PotionImmunity(String name, String description, String color, String material, String type, JSONArray whitelisted) {
+    public PotionImmunity(String name, String description, String color, String material, String type, JSONArray types, Boolean whitelist) {
         super(name, description, color, material, type);
-        this.whitelisted = (PotionEffectType[]) whitelisted.stream().map(s -> PotionEffectType.getByName((String) s)).toArray(PotionEffectType[]::new);
+        this.types = (PotionEffectType[]) types.stream().map(s -> PotionEffectType.getByName((String) s)).toArray(PotionEffectType[]::new);
+        this.whitelist = whitelist;
     }
 
     @EventHandler
     public void preventEffect(EntityPotionEffectEvent event) {
         if (!new EntityAuthenticator(this).authenticate(event)) return;
 
+        PotionEffectType type = event.getNewEffect().getType();
+
         // Don't block the whitelisted potion effect types
-        if (Arrays.stream(whitelisted).toList().contains(event.getNewEffect().getType())) return;
+        if (type == null || matches(type)) return;
 
         event.setCancelled(true);
+    }
+
+    private boolean matches(PotionEffectType type) {
+        boolean b = Arrays.stream(types).toList().contains(type);
+
+        return whitelist == b;
     }
 }
