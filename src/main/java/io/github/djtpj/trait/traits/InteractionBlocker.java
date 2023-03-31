@@ -1,6 +1,7 @@
 package io.github.djtpj.trait.traits;
 
 import io.github.djtpj.authenticator.authenticators.InteractAuthenticator;
+import io.github.djtpj.gui.ItemIcon;
 import io.github.djtpj.trait.Ability;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
@@ -23,8 +24,8 @@ public class InteractionBlocker extends Ability {
         this.actions = actions;
     }
 
-    public InteractionBlocker(String name, String description, String color, String material, String type, String blockedMaterial, JSONArray actions) {
-        super(name, description, color, material, type);
+    public InteractionBlocker(ItemIcon icon, Type type, String blockedMaterial, JSONArray actions) {
+        super(icon, type);
         this.blockedMaterial = Material.valueOf(blockedMaterial);
         this.actions = ((Stream<String>) actions.stream()).map(Action::valueOf).toArray(Action[]::new);
     }

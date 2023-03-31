@@ -1,6 +1,7 @@
 package io.github.djtpj.trait.traits;
 
 import io.github.djtpj.authenticator.authenticators.PlayerAuthenticator;
+import io.github.djtpj.gui.ItemIcon;
 import io.github.djtpj.trait.Ability;
 import io.github.djtpj.trait.UtilityAbility;
 import org.bukkit.Bukkit;
@@ -25,8 +26,8 @@ public class DimensionSpawn extends Ability {
         this.dimension = dimension;
     }
 
-    public DimensionSpawn(String name, String description, String color, String material, String type, String dimension) {
-        super(name, description, color, material, type);
+    public DimensionSpawn(ItemIcon icon, Type type, String dimension) {
+        super(icon, type);
 
         this.dimension = Dimension.valueOf(dimension);
     }

@@ -1,5 +1,6 @@
 package io.github.djtpj.trait.traits;
 
+import io.github.djtpj.gui.ItemIcon;
 import io.github.djtpj.trait.UtilityAbility;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
@@ -24,8 +25,14 @@ public class PermanentEffect extends RunnableAbility {
         this.effect = new PotionEffect(effectType, 200, amplifier, false, false);
     }
 
-    public PermanentEffect(String name, String description, String color, String type, String effectType, Long amplifier) {
-        this(name, description, ChatColor.valueOf(color), Type.valueOf(type), PotionEffectType.getByName(effectType), (int) (long) amplifier);
+    public PermanentEffect(ItemIcon icon, Type type, PotionEffectType effectType, int amplifier) {
+        super(icon, type);
+
+        this.effect = new PotionEffect(effectType, amplifier, 60);
+    }
+
+    public PermanentEffect(ItemIcon icon, Type type, String effectType, Long amplifier) {
+        this(icon, type, PotionEffectType.getByName(effectType), (int) (long) amplifier);
     }
 
     private void effect(Player player) {

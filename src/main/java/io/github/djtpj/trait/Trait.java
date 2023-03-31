@@ -25,14 +25,29 @@ public abstract class Trait implements Listener {
     protected final ItemIcon icon;
     protected final Type type;
 
+    /** Standard broken out constructor for use by non-utility abilities
+     * @param name the name of the trait
+     * @param description a description of the trait
+     * @param color a color to represent the trait
+     * @param material the item material to represent the trait
+     * @param type whether the trait is positive, negative, or neutral
+     * @see Material
+     * @see Type
+     * @see ChatColor
+     * @see ItemIcon
+     */
     protected Trait(String name, String description, ChatColor color, Material material, Type type) {
         this.icon = new ItemIcon(name, description + "\n\n" + type, color, material);
 
         this.type = type;
     }
 
-    protected Trait(String name, String description, String color, String material, String type) {
-        this(name, description, ChatColor.valueOf(color), Material.valueOf(material), Type.valueOf(type));
+    /** Shorter constructor for preformed {@link ItemIcon ItemIcons}
+     * @param icon the icon
+     * @param type the type of the trait
+     */
+    protected Trait(ItemIcon icon, Type type) {
+        this(icon.getName(), icon.getDescription(), icon.getColor(), icon.getType(), type);
     }
 
     protected void register() {

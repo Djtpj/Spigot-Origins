@@ -1,6 +1,7 @@
 package io.github.djtpj.trait.traits;
 
 import io.github.djtpj.authenticator.authenticators.EntityTargetAuthenticator;
+import io.github.djtpj.gui.ItemIcon;
 import io.github.djtpj.trait.Ability;
 import io.github.djtpj.trait.UtilityAbility;
 import org.bukkit.ChatColor;
@@ -26,14 +27,8 @@ public class PacifyMob extends Ability {
         this.types = types;
     }
 
-    public PacifyMob(String name, String description, String color, String material, String type, JSONArray types) {
-        super(
-                name,
-                description,
-                ChatColor.valueOf(color),
-                Material.valueOf(material),
-                Type.valueOf(type)
-        );
+    public PacifyMob(ItemIcon icon, Type type, JSONArray types) {
+        super(icon, type);
 
         this.types = (EntityType[]) types.stream().map(o -> ((String) o).toUpperCase()).map(s -> EntityType.valueOf((String) s)).toArray(EntityType[]::new);
     }

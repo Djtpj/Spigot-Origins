@@ -1,10 +1,10 @@
 package io.github.djtpj.origin;
 
+import io.github.djtpj.gui.ItemIcon;
 import io.github.djtpj.trait.CompoundAbility;
 import io.github.djtpj.trait.IllDefinedTraitException;
 import io.github.djtpj.trait.Trait;
 import io.github.djtpj.trait.TraitRegistry;
-import io.github.djtpj.gui.ItemIcon;
 import lombok.Getter;
 import org.bukkit.entity.Player;
 import org.json.simple.JSONArray;
@@ -13,9 +13,6 @@ import org.json.simple.JSONObject;
 import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.logging.Level;
-
-import static io.github.djtpj.origin.Main.plugin;
 
 /** An Origin is a collection of Traits as defined by the "origins.json" file
  *
@@ -49,25 +46,7 @@ public class Origin {
         for (Object traitObject : jsonTraits) {
             JSONObject jsonTrait = (JSONObject) traitObject;
 
-            String id = (String) jsonTrait.get("id");
-            Class<? extends Trait> traitClass = TraitRegistry.getTrait(id);
-
-            if (traitClass == null) {
-                plugin.getLogger().log(Level.WARNING, "There was no trait found with ID \"" + id + "\". Please check that there are no typos.");
-                continue;
-            }
-
-            JSONArray args = (JSONArray) jsonTrait.get("args");
-
-            Trait trait;
-            if (args == null || args.size() < 1) {
-                trait = traitClass.getConstructor().newInstance();
-            }
-
-            else {
-                Class<?>[] argTypes = getArgTypes(args.toArray());
-                trait = traitClass.getConstructor(argTypes).newInstance(args.toArray());
-            }
+            Trait trait = TraitRegistry.deserializeTrait(jsonTrait);
 
             traits.add(trait);
         }
@@ -100,11 +79,16 @@ public class Origin {
         }
     }
 
-    private static Class<?>[] getArgTypes(Object[] args) {
-        ArrayList<Class<Object>> results = new ArrayList<>();
+    private static Class<?>[] getConstructorTypes(JSONObject traitObject) {
+        ArrayList<Class<?>> results = new ArrayList<>();
 
-        for (Object arg : args) {
-            results.add((Class<Object>) arg.getClass());
+        if (traitObject.containsKey("icon")) results.add(ItemIcon.class);
+        if (traitObject.containsKey("type")) results.add(Trait.Type.class);
+
+        if (traitObject.containsKey("args")) {
+            for (Object arg : (JSONArray) traitObject.get("args")) {
+                results.add(arg.getClass());
+            }
         }
 
         return results.toArray(new Class[0]);

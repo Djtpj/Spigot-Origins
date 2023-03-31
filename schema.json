@@ -1406,6 +1406,13 @@
           "type": "string",
           "description": "The string ID of the trait."
         },
+        "icon": {
+          "$ref": "#/definitions/Icon"
+        },
+        "type": {
+          "type": "string",
+          "enum": ["POSITIVE", "NEUTRAL", "NEGATIVE"]
+        },
         "args": {
           "type": "array",
           "description": "The arguments to pass into the trait.",
@@ -1418,6 +1425,10 @@
       "required": [
         "id"
       ],
+      "dependencies": {
+        "icon": ["type"],
+        "type": ["icon"]
+      },
       "title": "Trait"
     },
     "Arg": {

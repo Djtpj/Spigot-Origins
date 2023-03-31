@@ -1,5 +1,6 @@
 package io.github.djtpj.trait;
 
+import io.github.djtpj.gui.ItemIcon;
 import lombok.Getter;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
@@ -15,13 +16,13 @@ public abstract class Ability extends Trait {
         register();
     }
 
-    protected Ability(String name, String description, String color, String material, String type) {
-        super(name, description, color, material, type);
+    protected Ability(ItemIcon icon, Type type) {
+        super(icon, type);
 
         register();
     }
 
     protected Ability() {
-        this(null, null, (ChatColor) null, null, null);
+        super(null, null, null, null, null);
     }
 }

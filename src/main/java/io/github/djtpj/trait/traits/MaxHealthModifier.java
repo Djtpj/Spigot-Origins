@@ -1,5 +1,6 @@
 package io.github.djtpj.trait.traits;
 
+import io.github.djtpj.gui.ItemIcon;
 import io.github.djtpj.trait.Ability;
 import io.github.djtpj.trait.UtilityAbility;
 import org.bukkit.ChatColor;
@@ -21,8 +22,8 @@ public class MaxHealthModifier extends Ability {
         this.newHealth = newHealth;
     }
 
-    public MaxHealthModifier(String name, String description, String color, String material, String type, Double newHealth) {
-        super(name, description, color, material, type);
+    public MaxHealthModifier(ItemIcon icon, Type type, Double newHealth) {
+        super(icon, type);
         this.newHealth = newHealth;
     }
 

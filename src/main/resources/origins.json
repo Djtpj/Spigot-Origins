@@ -58,12 +58,14 @@
 
       {
         "id": "pacify-mob",
+        "icon": {
+          "name": "Enderkin",
+          "desc": "You are so closely related to Endermen, that you cannot cause them to become angry with you.",
+          "color": "LIGHT_PURPLE",
+          "material": "ENDER_EYE"
+        },
+        "type": "POSITIVE",
         "args": [
-          "Enderkin",
-          "You are so closely related to Endermen, that you cannot cause them to become angry with you.",
-          "LIGHT_PURPLE",
-          "ENDER_EYE",
-          "POSITIVE",
           [
             "ENDERMAN"
           ]
@@ -85,11 +87,15 @@
     "traits": [
       {
         "id": "perm-effect",
+        "icon": {
+          "name": "Fireborn",
+          "desc": "You are completely immune to all fire based damage.",
+          "color": "GOLD",
+          "material": "FIRE_CHARGE"
+        },
+        "type": "POSITIVE",
+
         "args": [
-          "Fireborn",
-          "You are completely immune to all fire based damage.",
-          "GOLD",
-          "POSITIVE",
           "FIRE_RESISTANCE",
           0
         ]
@@ -97,12 +103,14 @@
 
       {
         "id": "dimension-spawn",
+        "icon": {
+          "name": "Netherborn",
+          "desc": "You spawn in the Nether.",
+          "color": "RED",
+          "material": "NETHERRACK"
+        },
+        "type": "NEGATIVE",
         "args": [
-          "Netherborn",
-          "You spawn in the Nether.",
-          "RED",
-          "NETHERRACK",
-          "NEGATIVE",
           "NETHER"
         ]
       },
@@ -113,12 +121,14 @@
 
       {
         "id": "potion-immune",
+        "icon": {
+          "name": "High Body Temperature",
+          "desc": "You are unaffected by all Potion Effects.",
+          "color": "DARK_RED",
+          "material": "POTION"
+        },
+        "type": "NEUTRAL",
         "args": [
-          "High Body Temperature",
-          "You are unaffected by all Potion Effects.",
-          "DARK_RED",
-          "POTION",
-          "NEUTRAL",
           ["FIRE_RESISTANCE"],
           true
         ]
@@ -140,15 +150,18 @@
       "color": "LIGHT_PURPLE",
       "material": "PHANTOM_MEMBRANE"
     },
+
     "traits": [
       {
         "id": "pacify-mob",
+        "icon": {
+          "name": "Phantom Friend",
+          "desc": "Your phantom brethren have no interest in harming you.",
+          "color": "DARK_PURPLE",
+          "material": "PHANTOM_MEMBRANE"
+        },
+        "type": "POSITIVE",
         "args": [
-          "Phantom Friend",
-          "Your phantom brethren have no interest in harming you.",
-          "DARK_PURPLE",
-          "PHANTOM_MEMBRANE",
-          "POSITIVE",
           [
             "PHANTOM"
           ]
@@ -157,12 +170,14 @@
       
       {
         "id": "health-mod",
+        "icon": {
+          "name": "Weakness",
+          "desc": "You are small and frail and therefore only have seven hearts.",
+          "color": "DARK_RED",
+          "material": "POTION"
+        },
+        "type": "NEGATIVE",
         "args": [
-          "Weakness",
-          "You are small and frail, and therefore only have seven hearts.",
-          "DARK_RED",
-          "POTION",
-          "NEGATIVE",
           14.0
         ]
       },
@@ -194,11 +209,14 @@
 
       {
         "id": "perm-effect",
+        "icon": {
+          "name": "Sea Born",
+          "desc": "You are able to breath, mine, and see well underwater.",
+          "color": "DARK_AQUA",
+          "material": "NAUTILUS_SHELL"
+        },
+        "type": "POSITIVE",
         "args": [
-            "Sea Born",
-            "You are able to breath, mine, and see underwater.",
-            "DARK_AQUA",
-            "POSITIVE",
             "CONDUIT_POWER",
             0
         ]
@@ -213,13 +231,15 @@
 
       {
         "id": "item-damage-mod",
+        "icon": {
+          "name": "Trident Handy",
+          "desc": "You are quite adept in trident based combat.",
+          "color": "BLUE",
+          "material": "TRIDENT"
+        },
+        "type": "POSITIVE",
         "args": [
-          "Trident Handy",
-          "You are quite adept in trident based combat.",
-          "BLUE",
-          "TRIDENT",
-          "POSITIVE",
-          11.0,
+          22.0,
           "TRIDENT"
         ]
       }
@@ -239,12 +259,16 @@
     "traits": [
       {
         "id": "health-mod",
+        "icon": {
+          "name": "Weakness",
+          "desc": "You are light and frail, and therefore only have seven hearts.",
+          "color": "DARK_RED",
+          "material": "POTION"
+        },
+
+        "type": "NEGATIVE",
+
         "args": [
-          "Weakness",
-          "You are light and frail, and therefore only have seven hearts.",
-          "DARK_RED",
-          "POTION",
-          "NEGATIVE",
           14.0
         ]
       },
@@ -255,12 +279,14 @@
 
       {
         "id": "damage-taken-mod",
+        "icon": {
+          "name": "Flammable",
+          "desc": "As a primarily leaf based organism, you are highly susceptible to fire damage.",
+          "color": "DARK_GREEN",
+          "material": "FLINT_AND_STEEL"
+        },
+        "type": "NEGATIVE",
         "args": [
-          "Flammable",
-          "As a primarily leaf based organism, you are highly susceptible to fire damage.",
-          "DARK_GREEN",
-          "FLINT_AND_STEEL",
-          "NEGATIVE",
           4.0,
           "FIRE_TICK"
         ]
@@ -279,12 +305,16 @@
 
       {
         "id": "interaction-blocker",
+        "icon": {
+          "name": "Unhandy",
+          "desc": "Your hands are ill-suited to using a shield.",
+          "color": "GOLD",
+          "material": "SHIELD"
+        },
+
+        "type": "NEGATIVE",
+
         "args": [
-          "Unhandy",
-          "Your hands are ill-suited to using a shield.",
-          "GOLD",
-          "SHIELD",
-          "NEGATIVE",
           "SHIELD",
           [
             "RIGHT_CLICK_BLOCK",
@@ -313,11 +343,14 @@
 
       {
         "id": "perm-effect",
+        "icon": {
+          "name": "Combatant",
+          "desc": "You are well suited to melee combat.",
+          "color": "RED",
+          "material": "IRON_SWORD"
+        },
+        "type": "POSITIVE",
         "args": [
-          "Combatant",
-          "You are well suited to melee combat.",
-          "RED",
-          "POSITIVE",
           "INCREASE_DAMAGE",
           0
         ]
@@ -325,11 +358,14 @@
 
       {
         "id": "perm-effect",
+        "icon": {
+          "name": "Zombie Feet",
+          "desc": "Your feet are rotten and difficult to move quickly, as a result, you cannot run fast.",
+          "color": "DARK_GREEN",
+          "material": "FEATHER"
+        },
+        "type": "NEGATIVE",
         "args": [
-          "Zombie Feet",
-          "Your feet are rotten and difficult to move quickly, as a result, you cannot run fast.",
-          "DARK_GREEN",
-          "NEGATIVE",
           "SLOW",
           0
         ]
@@ -337,12 +373,14 @@
 
       {
         "id": "potion-immune",
+        "icon": {
+          "name": "Strong Stomach",
+          "desc": "Your stomach is strong, and you can never sustain the hunger effect.",
+          "color": "DARK_GREEN",
+          "material": "ROTTEN_FLESH"
+        },
+        "type": "POSITIVE",
         "args": [
-          "Strong Stomach",
-          "Your stomach is strong, and you can never sustain the hunger effect.",
-          "DARK_GREEN",
-          "ROTTEN_FLESH",
-          "POSITIVE",
           [
             "HUNGER"
           ],

@@ -1,6 +1,7 @@
 package io.github.djtpj.trait.traits;
 
 import io.github.djtpj.authenticator.authenticators.EntityAuthenticator;
+import io.github.djtpj.gui.ItemIcon;
 import io.github.djtpj.trait.Ability;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
@@ -21,8 +22,8 @@ public class DamageDealtModifier extends Ability {
         this.shouldModify = shouldModify;
     }
 
-    public DamageDealtModifier(String name, String description, String color, String material, String type, Double damage, Predicate<EntityDamageByEntityEvent> shouldModify) {
-        super(name, description, color, material, type);
+    public DamageDealtModifier(ItemIcon icon, Type type, Double damage, Predicate<EntityDamageByEntityEvent> shouldModify) {
+        super(icon, type);
         this.damage = damage;
         this.shouldModify = shouldModify;
     }

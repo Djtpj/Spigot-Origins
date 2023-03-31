@@ -1,6 +1,7 @@
 package io.github.djtpj.trait.traits;
 
 import io.github.djtpj.PlayerManager;
+import io.github.djtpj.gui.ItemIcon;
 import io.github.djtpj.trait.Ability;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
@@ -14,6 +15,8 @@ import static io.github.djtpj.origin.Main.plugin;
 
 /** A RunnableAbility is an ability that runs over and over again every {@code x} ticks */
 public abstract class RunnableAbility extends Ability {
+    private int delayTicks = 0, loopTicks  = 10;
+
     public RunnableAbility(String name, String description, ChatColor color, Material material, Type type) {
         this(name, description, color, material, type, 0, 10);
     }
@@ -24,20 +27,53 @@ public abstract class RunnableAbility extends Ability {
 
     public RunnableAbility(String name, String description, ChatColor color, Material material, Type type, int delayTicks, int loopTicks) {
         super(name, description, color, material, type);
+        this.delayTicks = delayTicks;
+        this.loopTicks = loopTicks;
 
-        Bukkit.getScheduler().scheduleSyncRepeatingTask(plugin, this::tick, delayTicks, loopTicks);
+        init();
     }
 
     public RunnableAbility() {
-        this(null, null, null, null, null);
+        init();
     }
 
     public RunnableAbility(int loopTicks) {
-        this(null, null, null, null, null, loopTicks);
+        this.loopTicks = loopTicks;
+
+        init();
     }
 
     public RunnableAbility(int delayTicks, int loopTicks) {
-        this(null, null, null, null, null, delayTicks, loopTicks);
+        this.delayTicks = delayTicks;
+        this.loopTicks = loopTicks;
+
+        init();
+    }
+
+    public RunnableAbility(ItemIcon icon, Type type) {
+        super(icon, type);
+
+        init();
+    }
+
+    public RunnableAbility(ItemIcon icon, Type type, int loopTicks) {
+        super(icon, type);
+
+        this.loopTicks = loopTicks;
+
+        init();
+    }
+
+    public RunnableAbility(ItemIcon icon, Type type, int delayTicks, int loopTicks) {
+        super(icon, type);
+        this.delayTicks = delayTicks;
+        this.loopTicks = loopTicks;
+
+        init();
+    }
+
+    private void init() {
+        Bukkit.getScheduler().scheduleSyncRepeatingTask(plugin, this::tick, delayTicks, loopTicks);
     }
 
     private void tick() {

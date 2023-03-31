@@ -1,6 +1,7 @@
 package io.github.djtpj.trait.traits;
 
 import io.github.djtpj.authenticator.authenticators.EntityAuthenticator;
+import io.github.djtpj.gui.ItemIcon;
 import io.github.djtpj.trait.Ability;
 import io.github.djtpj.trait.UtilityAbility;
 import org.bukkit.ChatColor;
@@ -28,8 +29,8 @@ public class PotionImmunity extends Ability {
         this.types = types;
     }
 
-    public PotionImmunity(String name, String description, String color, String material, String type, JSONArray types, Boolean whitelist) {
-        super(name, description, color, material, type);
+    public PotionImmunity(ItemIcon icon, Type type, JSONArray types, Boolean whitelist) {
+        super(icon, type);
         this.types = (PotionEffectType[]) types.stream().map(s -> PotionEffectType.getByName((String) s)).toArray(PotionEffectType[]::new);
         this.whitelist = whitelist;
     }

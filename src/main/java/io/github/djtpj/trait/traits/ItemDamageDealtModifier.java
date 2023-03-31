@@ -1,6 +1,7 @@
 package io.github.djtpj.trait.traits;
 
 import io.github.djtpj.ItemComparer;
+import io.github.djtpj.gui.ItemIcon;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
@@ -28,8 +29,8 @@ public class ItemDamageDealtModifier extends DamageDealtModifier {
         super(damage, generateShouldModify(new ItemStack(material)));
     }
 
-    public ItemDamageDealtModifier(String name, String description, String color, String material, String type, Double damage, String itemType) {
-        super(name, description, color, material, type, damage, generateShouldModify(new ItemStack(Material.valueOf(itemType))));
+    public ItemDamageDealtModifier(ItemIcon icon, Type type, Double damage, String itemType) {
+        super(icon, type, damage, generateShouldModify(new ItemStack(Material.valueOf(itemType))));
     }
 
     private static Predicate<EntityDamageByEntityEvent> generateShouldModify(ItemStack item) {
