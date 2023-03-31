@@ -88,8 +88,8 @@ loadScripts(document, 'script');</script>
 </div>
 <div class="inheritance" title="Inheritance Tree"><a href="https://docs.oracle.com/en/java/javase/19/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">java.lang.Object</a>
 <div class="inheritance"><a href="../Trait.html" title="class in io.github.djtpj.trait">io.github.djtpj.trait.Trait</a>
-<div class="inheritance"><a href="../Ability.html" title="class in io.github.djtpj.trait">io.github.djtpj.trait.Ability</a>
-<div class="inheritance">io.github.djtpj.trait.traits.RunnableAbility</div>
+<div class="inheritance"><a href="../Ability.html" title="class in io.github.djtpj.trait">io.github.djtpj.trait.SimpleTrait</a>
+<div class="inheritance">io.github.djtpj.trait.traits.RunnableSimpleTrait</div>
 </div>
 </div>
 </div>
@@ -105,7 +105,7 @@ loadScripts(document, 'script');</script>
 <hr>
 <div class="type-signature"><span class="modifiers">public abstract class </span><span class="element-name type-name-label">RunnableAbility</span>
 <span class="extends-implements">extends <a href="../Ability.html" title="class in io.github.djtpj.trait">Ability</a></span></div>
-<div class="block">A RunnableAbility is an ability that runs over and over again every <code>x</code> ticks</div>
+<div class="block">A RunnableAbility is an simpleTrait that runs over and over again every <code>x</code> ticks</div>
 </section>
 <section class="summary">
 <ul class="summary-list">
@@ -180,7 +180,7 @@ loadScripts(document, 'script');</script>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>protected org.bukkit.entity.Player[]</code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getApplicablePlayers()" class="member-name-link">getApplicablePlayers</a>()</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
-<div class="block">Returns the players with an origin that posses this ability</div>
+<div class="block">Returns the players with an origin that posses this simpleTrait</div>
 </div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code>protected abstract void</code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#onTick(org.bukkit.entity.Player)" class="member-name-link">onTick</a><wbr>(org.bukkit.entity.Player&nbsp;player)</code></div>
@@ -282,10 +282,10 @@ loadScripts(document, 'script');</script>
 <section class="detail" id="getApplicablePlayers()">
 <h3>getApplicablePlayers</h3>
 <div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="return-type">org.bukkit.entity.Player[]</span>&nbsp;<span class="element-name">getApplicablePlayers</span>()</div>
-<div class="block">Returns the players with an origin that posses this ability</div>
+<div class="block">Returns the players with an origin that posses this simpleTrait</div>
 <dl class="notes">
 <dt>Returns:</dt>
-<dd>the players that have this ability</dd>
+<dd>the players that have this simpleTrait</dd>
 </dl>
 </section>
 </li>
