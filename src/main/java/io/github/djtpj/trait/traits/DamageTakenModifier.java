@@ -2,13 +2,13 @@ package io.github.djtpj.trait.traits;
 
 import io.github.djtpj.authenticator.authenticators.EntityAuthenticator;
 import io.github.djtpj.gui.ItemIcon;
-import io.github.djtpj.trait.Ability;
+import io.github.djtpj.trait.SimpleTrait;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.entity.EntityDamageEvent;
 
-public class DamageTakenModifier extends Ability {
+public class DamageTakenModifier extends SimpleTrait {
     public static final String ID = "damage-taken-mod";
 
     private final Double newDamage;

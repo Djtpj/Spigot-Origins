@@ -9,7 +9,7 @@ import org.bukkit.event.player.PlayerItemConsumeEvent;
 
 import java.util.Objects;
 
-public class Photosynthesis extends RunnableAbility {
+public class Photosynthesis extends RunnableSimpleTrait {
     public static final String ID = "photosynthesis";
 
     public Photosynthesis() {

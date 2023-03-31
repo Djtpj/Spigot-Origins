@@ -1,7 +1,7 @@
 package io.github.djtpj.trait.traits;
 
 import io.github.djtpj.authenticator.authenticators.BlockBreakAuthenticator;
-import io.github.djtpj.trait.Ability;
+import io.github.djtpj.trait.SimpleTrait;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.enchantments.Enchantment;
@@ -10,7 +10,7 @@ import org.bukkit.event.block.BlockBreakEvent;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
-public class SilkyHands extends Ability {
+public class SilkyHands extends SimpleTrait {
     public static final String ID = "silky-hands";
 
     public SilkyHands() {

@@ -2,7 +2,7 @@ package io.github.djtpj.trait.traits;
 
 import io.github.djtpj.authenticator.authenticators.EntityAuthenticator;
 import io.github.djtpj.gui.ItemIcon;
-import io.github.djtpj.trait.Ability;
+import io.github.djtpj.trait.SimpleTrait;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.event.EventHandler;
@@ -10,7 +10,7 @@ import org.bukkit.event.entity.EntityDamageByEntityEvent;
 
 import java.util.function.Predicate;
 
-public class DamageDealtModifier extends Ability {
+public class DamageDealtModifier extends SimpleTrait {
     public static final String ID = "damage-mod";
 
     private final double damage;

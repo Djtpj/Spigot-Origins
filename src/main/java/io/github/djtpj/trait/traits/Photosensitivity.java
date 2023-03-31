@@ -6,7 +6,7 @@ import org.bukkit.entity.Player;
 
 import java.util.Objects;
 
-public class Photosensitivity extends RunnableAbility {
+public class Photosensitivity extends RunnableSimpleTrait {
     public final static String ID = "photosensitivity";
 
     public Photosensitivity() {

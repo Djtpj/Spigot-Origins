@@ -1,8 +1,8 @@
 package io.github.djtpj.trait.traits;
 
 import io.github.djtpj.authenticator.authenticators.EntityAuthenticator;
-import io.github.djtpj.trait.Ability;
-import io.github.djtpj.trait.UtilityAbility;
+import io.github.djtpj.trait.SimpleTrait;
+import io.github.djtpj.trait.UtilityTrait;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.event.EventHandler;
@@ -13,8 +13,8 @@ import java.util.Arrays;
 /**
  * Stops all damage that is caused by specified causes.
  */
-@UtilityAbility
-public class DamageCanceller extends Ability {
+@UtilityTrait
+public class DamageCanceller extends SimpleTrait {
     public static final String ID = "damage-canceller";
 
     private final EntityDamageEvent.DamageCause[] ignoredCauses;

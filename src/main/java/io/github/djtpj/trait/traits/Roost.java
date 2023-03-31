@@ -1,7 +1,7 @@
 package io.github.djtpj.trait.traits;
 
 import io.github.djtpj.authenticator.authenticators.PlayerAuthenticator;
-import io.github.djtpj.trait.Ability;
+import io.github.djtpj.trait.SimpleTrait;
 import net.md_5.bungee.api.ChatMessageType;
 import net.md_5.bungee.api.chat.TextComponent;
 import org.bukkit.ChatColor;
@@ -10,7 +10,7 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.player.PlayerBedEnterEvent;
 
-public class Roost extends Ability {
+public class Roost extends SimpleTrait {
     private static final int MINIMUM_SLEEP_HEIGHT = 128;
     public static final String ID = "roost";
 

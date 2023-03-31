@@ -1,7 +1,7 @@
 package io.github.djtpj.origin;
 
 import io.github.djtpj.gui.ItemIcon;
-import io.github.djtpj.trait.CompoundAbility;
+import io.github.djtpj.trait.CompoundTrait;
 import io.github.djtpj.trait.IllDefinedTraitException;
 import io.github.djtpj.trait.Trait;
 import io.github.djtpj.trait.TraitRegistry;
@@ -95,13 +95,13 @@ public class Origin {
     }
 
     /**
-     * @return All the traits, including the traits inside a {@link io.github.djtpj.trait.CompoundAbility}.
+     * @return All the traits, including the traits inside a {@link CompoundTrait}.
      */
     public Trait[] getAllTraits() {
         ArrayList<Trait> results = new ArrayList<>(Arrays.asList(traits));
 
         for (Trait trait : traits) {
-            if (!(trait instanceof CompoundAbility ability)) continue;
+            if (!(trait instanceof CompoundTrait ability)) continue;
 
             results.addAll(Arrays.asList(ability.getTraits()));
         }

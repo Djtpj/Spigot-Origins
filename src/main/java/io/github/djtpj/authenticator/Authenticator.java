@@ -1,14 +1,14 @@
 package io.github.djtpj.authenticator;
 
-import io.github.djtpj.trait.Ability;
+import io.github.djtpj.trait.SimpleTrait;
 import io.github.djtpj.trait.Trait;
 import lombok.Getter;
 import org.bukkit.event.Event;
 
-/** An Authenticator is a reusable way to check if an Ability should run on an event
+/** An Authenticator is a reusable way to check if an SimpleTrait should run on an event
  * @param <T> the Event to Authenticate
  * @see Event
- * @see Ability
+ * @see SimpleTrait
  */
 public abstract class Authenticator<T extends Event> {
     @Getter

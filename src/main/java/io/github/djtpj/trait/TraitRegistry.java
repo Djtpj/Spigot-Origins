@@ -44,7 +44,7 @@ public class TraitRegistry {
                     return aClass;
                 }
             } catch (NoSuchFieldException e) {
-                throw new IllDefinedTraitException("Ability \"" + aClass.getName() + "\" does not have the required static \"ID\" field.");
+                throw new IllDefinedTraitException("SimpleTrait \"" + aClass.getName() + "\" does not have the required static \"ID\" field.");
             } catch (IllegalAccessException e) {
                 throw new RuntimeException(e);
             }

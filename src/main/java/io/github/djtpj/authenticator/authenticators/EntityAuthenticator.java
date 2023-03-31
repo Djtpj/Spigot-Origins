@@ -1,7 +1,7 @@
 package io.github.djtpj.authenticator.authenticators;
 
 import io.github.djtpj.authenticator.Authenticator;
-import io.github.djtpj.trait.Ability;
+import io.github.djtpj.trait.SimpleTrait;
 import io.github.djtpj.trait.Trait;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.Player;
@@ -12,8 +12,8 @@ import java.util.function.Function;
 public class EntityAuthenticator <T extends EntityEvent> extends Authenticator<T> {
     private final Function<T, Entity> retreiveEntity;
 
-    public EntityAuthenticator(Ability ability) {
-        super(ability);
+    public EntityAuthenticator(SimpleTrait trait) {
+        super(trait);
         retreiveEntity = EntityEvent::getEntity;
     }
 

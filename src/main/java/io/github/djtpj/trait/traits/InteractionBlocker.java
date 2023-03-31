@@ -2,7 +2,7 @@ package io.github.djtpj.trait.traits;
 
 import io.github.djtpj.authenticator.authenticators.InteractAuthenticator;
 import io.github.djtpj.gui.ItemIcon;
-import io.github.djtpj.trait.Ability;
+import io.github.djtpj.trait.SimpleTrait;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.event.EventHandler;
@@ -12,7 +12,7 @@ import org.json.simple.JSONArray;
 
 import java.util.stream.Stream;
 
-public class InteractionBlocker extends Ability {
+public class InteractionBlocker extends SimpleTrait {
     public final static String ID = "interaction-blocker";
 
     private final Material blockedMaterial;

@@ -1,11 +1,11 @@
 package io.github.djtpj.trait.traits;
 
-import io.github.djtpj.trait.CompoundAbility;
+import io.github.djtpj.trait.CompoundTrait;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.potion.PotionEffectType;
 
-public class FrailBody extends CompoundAbility {
+public class FrailBody extends CompoundTrait {
     public final static String ID = "frail-body";
 
     public FrailBody() {

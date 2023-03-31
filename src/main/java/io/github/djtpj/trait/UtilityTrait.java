@@ -6,9 +6,9 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 /**
- * Tells a developer that an Ability is to be used in a general manner (typically) from the {@code origins.json} file.
+ * Tells a developer that an SimpleTrait is to be used in a general manner (typically) from the {@code origins.json} file.
  */
 @Retention(RetentionPolicy.SOURCE)
 @Target(ElementType.TYPE)
-public @interface UtilityAbility {
+public @interface UtilityTrait {
 }

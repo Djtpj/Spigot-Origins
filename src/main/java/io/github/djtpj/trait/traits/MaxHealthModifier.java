@@ -1,8 +1,8 @@
 package io.github.djtpj.trait.traits;
 
 import io.github.djtpj.gui.ItemIcon;
-import io.github.djtpj.trait.Ability;
-import io.github.djtpj.trait.UtilityAbility;
+import io.github.djtpj.trait.SimpleTrait;
+import io.github.djtpj.trait.UtilityTrait;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.attribute.Attribute;
@@ -11,8 +11,8 @@ import org.bukkit.entity.Player;
 /**
  * MaxHealthModifier sets a player's max health to a specified value.
  */
-@UtilityAbility
-public class MaxHealthModifier extends Ability {
+@UtilityTrait
+public class MaxHealthModifier extends SimpleTrait {
     public static final String ID = "health-mod";
 
     private final double newHealth;

@@ -1,7 +1,7 @@
 package io.github.djtpj.authenticator.authenticators;
 
 import io.github.djtpj.ItemComparer;
-import io.github.djtpj.trait.Ability;
+import io.github.djtpj.trait.SimpleTrait;
 import org.bukkit.event.block.Action;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.inventory.ItemStack;
@@ -16,11 +16,11 @@ public class ItemInteractionAuthenticator extends InteractAuthenticator {
      * @param items            the list of items that the player must hold one of
      * @param requiresSneaking whether the player needs to be sneaking
      * @param requiresItem     whether the item must be non-placeable, edible, or interactable to trigger the event
-     * @param ability          the associated ability
+     * @param simpleTrait          the associated simpleTrait
      * @param actions          the acceptable actions
      */
-    public ItemInteractionAuthenticator(ItemStack[] items, boolean requiresSneaking, boolean requiresItem, Ability ability, Action... actions) {
-        super(requiresSneaking, requiresItem, ability, actions);
+    public ItemInteractionAuthenticator(ItemStack[] items, boolean requiresSneaking, boolean requiresItem, SimpleTrait simpleTrait, Action... actions) {
+        super(requiresSneaking, requiresItem, simpleTrait, actions);
 
         this.items = items;
     }
@@ -29,11 +29,11 @@ public class ItemInteractionAuthenticator extends InteractAuthenticator {
      * @param item the item the player must hold
      * @param requiresSneaking whether the player needs to be sneaking
      * @param requiresItem     whether the item must be non-placeable, edible, or interactable to trigger the event
-     * @param ability the associated ability
+     * @param simpleTrait the associated simpleTrait
      * @param actions the acceptable actions
      */
-    public ItemInteractionAuthenticator(ItemStack item, boolean requiresSneaking, boolean requiresItem, Ability ability, Action... actions) {
-        this(new ItemStack[] {item}, requiresSneaking, requiresItem, ability, actions);
+    public ItemInteractionAuthenticator(ItemStack item, boolean requiresSneaking, boolean requiresItem, SimpleTrait simpleTrait, Action... actions) {
+        this(new ItemStack[] {item}, requiresSneaking, requiresItem, simpleTrait, actions);
     }
 
     @Override

@@ -1,14 +1,14 @@
 package io.github.djtpj.trait.traits;
 
 import io.github.djtpj.authenticator.authenticators.EntityAuthenticator;
-import io.github.djtpj.trait.Ability;
+import io.github.djtpj.trait.SimpleTrait;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.entity.FoodLevelChangeEvent;
 
-public class SelfSustaining extends Ability {
+public class SelfSustaining extends SimpleTrait {
     public static final String ID = "self-sustaining";
 
     public SelfSustaining() {

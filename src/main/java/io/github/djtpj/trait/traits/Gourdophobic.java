@@ -8,7 +8,7 @@ import org.bukkit.inventory.ItemStack;
 
 import static io.github.djtpj.origin.Main.plugin;
 
-public class Gourdophobic extends RunnableAbility {
+public class Gourdophobic extends RunnableSimpleTrait {
     public static final String ID = "gourdophobic";
 
     public Gourdophobic() {

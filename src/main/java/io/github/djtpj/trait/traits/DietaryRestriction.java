@@ -1,8 +1,8 @@
 package io.github.djtpj.trait.traits;
 
 import io.github.djtpj.authenticator.authenticators.ItemConsumptionAuthenticator;
-import io.github.djtpj.trait.Ability;
-import io.github.djtpj.trait.UtilityAbility;
+import io.github.djtpj.trait.SimpleTrait;
+import io.github.djtpj.trait.UtilityTrait;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.event.EventHandler;
@@ -16,8 +16,8 @@ import static org.bukkit.Material.*;
  * DietaryRestriction is an ability that prevents a player from eating certain sets of food.
  * @see RestrictionType
  */
-@UtilityAbility
-public class DietaryRestriction extends Ability {
+@UtilityTrait
+public class DietaryRestriction extends SimpleTrait {
     public static final String ID = "dietary-restriction";
 
     private final RestrictionType restrictionType;

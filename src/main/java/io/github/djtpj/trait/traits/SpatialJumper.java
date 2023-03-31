@@ -12,7 +12,7 @@ import org.bukkit.event.block.Action;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.event.player.PlayerTeleportEvent;
 
-public class SpatialJumper extends CooldownAbility {
+public class SpatialJumper extends CooldownSimpleTrait {
     public final static String ID = "spatial-jumper";
 
     public SpatialJumper() {

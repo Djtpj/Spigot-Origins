@@ -2,8 +2,8 @@ package io.github.djtpj.trait.traits;
 
 import io.github.djtpj.authenticator.authenticators.PlayerAuthenticator;
 import io.github.djtpj.gui.ItemIcon;
-import io.github.djtpj.trait.Ability;
-import io.github.djtpj.trait.UtilityAbility;
+import io.github.djtpj.trait.SimpleTrait;
+import io.github.djtpj.trait.UtilityTrait;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Location;
@@ -15,8 +15,8 @@ import org.bukkit.event.player.PlayerRespawnEvent;
 /**
  * Changes what dimension a player respawns in
  */
-@UtilityAbility
-public class DimensionSpawn extends Ability {
+@UtilityTrait
+public class DimensionSpawn extends SimpleTrait {
     public final static String ID = "dimension-spawn";
 
     private final Dimension dimension;

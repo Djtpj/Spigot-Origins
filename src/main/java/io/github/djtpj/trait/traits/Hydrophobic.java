@@ -1,13 +1,13 @@
 package io.github.djtpj.trait.traits;
 
-import io.github.djtpj.trait.CompoundAbility;
+import io.github.djtpj.trait.CompoundTrait;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
 
 import java.util.Objects;
 
-public class Hydrophobic extends CompoundAbility {
+public class Hydrophobic extends CompoundTrait {
     public final static String ID = "hydrophobic";
 
     public Hydrophobic() {
@@ -23,7 +23,7 @@ public class Hydrophobic extends CompoundAbility {
                         "{p} got soaked"
                 ),
 
-                new RunnableAbility(20) {
+                new RunnableSimpleTrait(20) {
                     @Override
                     protected void onTick(Player player) {
                         final int damage = 2;

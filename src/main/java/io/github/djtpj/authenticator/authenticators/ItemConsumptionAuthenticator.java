@@ -1,6 +1,6 @@
 package io.github.djtpj.authenticator.authenticators;
 
-import io.github.djtpj.trait.Ability;
+import io.github.djtpj.trait.SimpleTrait;
 import org.bukkit.Material;
 import org.bukkit.event.player.PlayerItemConsumeEvent;
 
@@ -10,11 +10,11 @@ public class ItemConsumptionAuthenticator extends PlayerAuthenticator<PlayerItem
     private final Material[] materials;
 
     /**
-     * @param associatedAbility the ability to associate with the Authenticator
+     * @param associatedTrait the ability to associate with the Authenticator
      * @param materials one of the food materials the player must be eating to authenticate (leave empty for all to trigger)
      */
-    public ItemConsumptionAuthenticator(Ability associatedAbility, Material... materials) {
-        super(associatedAbility);
+    public ItemConsumptionAuthenticator(SimpleTrait associatedTrait, Material... materials) {
+        super(associatedTrait);
         this.materials = materials;
     }
 

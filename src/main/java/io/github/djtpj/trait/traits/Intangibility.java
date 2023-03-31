@@ -18,7 +18,7 @@ import java.util.Optional;
 
 import static io.github.djtpj.origin.Main.plugin;
 
-public class Intangibility extends CooldownAbility {
+public class Intangibility extends CooldownSimpleTrait {
     public static final String ID = "intangibility";
 
     public Intangibility() {

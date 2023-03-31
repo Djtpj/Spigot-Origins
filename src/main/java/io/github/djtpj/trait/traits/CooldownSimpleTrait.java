@@ -1,7 +1,7 @@
 package io.github.djtpj.trait.traits;
 
-import io.github.djtpj.trait.Ability;
-import io.github.djtpj.trait.UtilityAbility;
+import io.github.djtpj.trait.SimpleTrait;
+import io.github.djtpj.trait.UtilityTrait;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
@@ -14,18 +14,18 @@ import java.util.NoSuchElementException;
 import static io.github.djtpj.origin.Main.plugin;
 
 /**
- * A CooldownAbility is an Ability that provides the tools to program in a cooldown.
+ * A CooldownSimpleTrait is an SimpleTrait that provides the tools to program in a cooldown.
  */
-@UtilityAbility
-public abstract class CooldownAbility extends Ability {
+@UtilityTrait
+public abstract class CooldownSimpleTrait extends SimpleTrait {
     private final long cooldownTicks;
 
-    protected CooldownAbility(String name, String description, ChatColor color, Material material, Type type, long cooldownTicks) {
+    protected CooldownSimpleTrait(String name, String description, ChatColor color, Material material, Type type, long cooldownTicks) {
         super(name, description, color, material, type);
         this.cooldownTicks = cooldownTicks;
     }
 
-    protected CooldownAbility(long cooldownTicks) {
+    protected CooldownSimpleTrait(long cooldownTicks) {
         super();
         this.cooldownTicks = cooldownTicks;
     }

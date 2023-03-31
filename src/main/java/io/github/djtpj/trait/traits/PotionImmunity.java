@@ -2,8 +2,8 @@ package io.github.djtpj.trait.traits;
 
 import io.github.djtpj.authenticator.authenticators.EntityAuthenticator;
 import io.github.djtpj.gui.ItemIcon;
-import io.github.djtpj.trait.Ability;
-import io.github.djtpj.trait.UtilityAbility;
+import io.github.djtpj.trait.SimpleTrait;
+import io.github.djtpj.trait.UtilityTrait;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.event.EventHandler;
@@ -16,8 +16,8 @@ import java.util.Arrays;
 /**
  * Makes player completely unable to be affected by potions (although potions can be whitelisted from this effect).
  */
-@UtilityAbility
-public class PotionImmunity extends Ability {
+@UtilityTrait
+public class PotionImmunity extends SimpleTrait {
     public static final String ID = "potion-immune";
 
     private final PotionEffectType[] types;

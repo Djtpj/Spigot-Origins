@@ -22,7 +22,7 @@ import java.util.stream.Stream;
 
 import static org.bukkit.Material.*;
 
-public class ArmorSetRestriction extends RunnableAbility {
+public class ArmorSetRestriction extends RunnableSimpleTrait {
     public static final String ID = "armor-restriction";
 
     private final ArmorSet[] allowedSets;
