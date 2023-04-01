@@ -230,21 +230,6 @@
       },
 
       {
-        "id": "item-damage-mod",
-        "icon": {
-          "name": "Trident Handy",
-          "desc": "You are quite adept in trident based combat.",
-          "color": "BLUE",
-          "material": "TRIDENT"
-        },
-        "type": "POSITIVE",
-        "args": [
-          22.0,
-          "TRIDENT"
-        ]
-      },
-
-      {
         "id": "buoyant"
       }
     ]
