@@ -1,6 +1,5 @@
 package io.github.djtpj.trait.traits;
 
-import io.github.djtpj.ItemComparer;
 import io.github.djtpj.gui.ItemIcon;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
@@ -37,7 +36,7 @@ public class ItemDamageDealtModifier extends DamageDealtModifier {
         return (e) -> {
             Player player = (Player) e.getDamager();
 
-            return ItemComparer.compareItems(item, player.getItemInUse());
+            return player.getInventory().getItemInMainHand().getType() == item.getType();
         };
     }
 }
