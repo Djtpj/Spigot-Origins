@@ -22,13 +22,13 @@ public class PermanentEffect extends RunnableSimpleTrait {
     public PermanentEffect(String name, String description, ChatColor color, Type type, PotionEffectType effectType, int amplifier) {
         super(name, description, color, Material.POTION, type, 60);
 
-        this.effect = new PotionEffect(effectType, 200, amplifier, false, false);
+        this.effect = new PotionEffect(effectType, 200, amplifier, false, false, false);
     }
 
     public PermanentEffect(ItemIcon icon, Type type, PotionEffectType effectType, int amplifier) {
-        super(icon, type);
+        super(icon, type, 60);
 
-        this.effect = new PotionEffect(effectType, amplifier, 60);
+        this.effect = new PotionEffect(effectType, 200, amplifier, false, false, false);
     }
 
     public PermanentEffect(ItemIcon icon, Type type, String effectType, Long amplifier) {
