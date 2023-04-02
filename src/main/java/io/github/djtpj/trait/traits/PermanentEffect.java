@@ -35,6 +35,12 @@ public class PermanentEffect extends RunnableSimpleTrait {
         this(icon, type, PotionEffectType.getByName(effectType), (int) (long) amplifier);
     }
 
+    public PermanentEffect(ItemIcon icon, Type type, String effectType, Long amplifier, Long durationTicks) {
+        super(icon, type);
+
+        this.effect = new PotionEffect(PotionEffectType.getByName(effectType.toUpperCase()), (int) (long) durationTicks, (int) (long) amplifier, false, false, false);
+    }
+
     private void effect(Player player) {
         player.addPotionEffect(effect);
     }
