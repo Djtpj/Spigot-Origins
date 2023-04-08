@@ -20,70 +20,70 @@ import java.io.InputStreamReader;
 import java.lang.reflect.InvocationTargetException;
 
 public final class Main extends JavaPlugin {
-    public static JavaPlugin plugin;
+  public static JavaPlugin plugin;
 
-    @Override
-    public void onEnable() {
-        plugin = this;
+  @Override
+  public void onEnable() {
+    plugin = this;
 
-        Bukkit.getServer().getPluginManager().registerEvents(new OriginPicker(null), this);
-        Bukkit.getServer().getPluginManager().registerEvents(new OriginPane(null, null), this);
+    Bukkit.getServer().getPluginManager().registerEvents(new OriginPicker(null), this);
+    Bukkit.getServer().getPluginManager().registerEvents(new OriginPane(null, null), this);
 
-        getCommand("origin").setExecutor(new OriginCommand());
-        getCommand("origin").setTabCompleter(new OriginCommand());
+    getCommand("origin").setExecutor(new OriginCommand());
+    getCommand("origin").setTabCompleter(new OriginCommand());
 
-        try {
-            String json = getOriginJSON();
+    try {
+      String json = getOriginJSON();
 
-            readOrigins(json);
-        } catch (IOException | ParseException e) {
-            throw new RuntimeException(e);
-        }
-
-        for (Player player : Bukkit.getOnlinePlayers()) {
-            Origin origin = PlayerManager.getInstance().getOrigin(player);
-
-            if (origin == null) continue;
-
-            System.out.println(origin.getName());
-        }
+      readOrigins(json);
+    } catch (IOException | ParseException e) {
+      throw new RuntimeException(e);
     }
 
-    @Override
-    public void onDisable() {
-        // Plugin shutdown logic
+    for (Player player : Bukkit.getOnlinePlayers()) {
+      Origin origin = PlayerManager.getInstance().getOrigin(player);
+
+      if (origin == null) continue;
+
+      System.out.println(origin.getName());
+    }
+  }
+
+  @Override
+  public void onDisable() {
+    // Plugin shutdown logic
+  }
+
+  private void readOrigins(String json) throws IOException, ParseException {
+    JSONParser parser = new JSONParser();
+    JSONArray array = (JSONArray) parser.parse(json);
+
+    for (Object o : array) {
+      JSONObject object = (JSONObject) o;
+
+      try {
+        OriginRegistry.getInstance().register(new Origin(object));
+      } catch (NoSuchMethodException | InvocationTargetException | InstantiationException |
+      IllegalAccessException | IllDefinedTraitException e) {
+        throw new RuntimeException(e);
+      }
+    }
+  }
+
+  private String getOriginJSON() throws IOException {
+    InputStream inputStream = getResource("origins.json");
+    assert inputStream != null;
+
+    InputStreamReader reader = new InputStreamReader(inputStream);
+    BufferedReader bufferedReader = new BufferedReader(reader);
+
+    StringBuilder buffer = new StringBuilder();
+
+    String line;
+    while ((line = bufferedReader.readLine()) != null) {
+      buffer.append(line);
     }
 
-    private void readOrigins(String json) throws IOException, ParseException {
-        JSONParser parser = new JSONParser();
-        JSONArray array = (JSONArray) parser.parse(json);
-
-        for (Object o : array) {
-            JSONObject object = (JSONObject) o;
-
-            try {
-                OriginRegistry.getInstance().register(new Origin(object));
-            } catch (NoSuchMethodException | InvocationTargetException | InstantiationException |
-                     IllegalAccessException | IllDefinedTraitException e) {
-                throw new RuntimeException(e);
-            }
-        }
-    }
-
-    private String getOriginJSON() throws IOException {
-        InputStream inputStream = getResource("origins.json");
-        assert inputStream != null;
-
-        InputStreamReader reader = new InputStreamReader(inputStream);
-        BufferedReader bufferedReader = new BufferedReader(reader);
-
-        StringBuilder buffer = new StringBuilder();
-
-        String line;
-        while ((line = bufferedReader.readLine()) != null) {
-            buffer.append(line);
-        }
-
-        return buffer.toString();
-    }
+    return buffer.toString();
+  }
 }
