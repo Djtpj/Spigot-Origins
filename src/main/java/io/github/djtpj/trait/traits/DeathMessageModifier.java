@@ -44,6 +44,8 @@ public class DeathMessageModifier extends SimpleTrait {
     public void changeMessage(PlayerDeathEvent event) {
         if (!new EntityAuthenticator(this).authenticate(event)) return;
 
+        if (!predicate.test(event)) return;
+
         event.setDeathMessage(message.replace("{p}", event.getEntity().getDisplayName()));
     }
 }
