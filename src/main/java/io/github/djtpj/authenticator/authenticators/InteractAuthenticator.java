@@ -32,7 +32,9 @@ public class InteractAuthenticator extends PlayerAuthenticator<PlayerInteractEve
 
         if (!playerHasTrait(event.getPlayer(), getAssociatedTrait())) return false;
 
-        if (requiresItem && event.getItem() != null) {
+        if (requiresItem && event.getItem() == null) return false;
+
+        if (requiresItem) {
             Material material = event.getItem().getType();
 
             if (material.isEdible() || material.isBlock()) {

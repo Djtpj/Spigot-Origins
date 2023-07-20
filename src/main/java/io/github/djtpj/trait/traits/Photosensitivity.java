@@ -20,6 +20,8 @@ public class Photosensitivity extends RunnableSimpleTrait {
         final long DAY_TIME = 12300, NIGHT_TIME = 23850;
         if (time >= DAY_TIME && time <= NIGHT_TIME) return;
 
+        if (player.getInventory().getHelmet() != null) return;
+
         if (player.getWorld().hasStorm() || player.getWorld().isThundering()) return;
 
         int blockLocation = Objects.requireNonNull(player.getLocation().getWorld()).getHighestBlockYAt(player.getLocation());
@@ -27,5 +29,10 @@ public class Photosensitivity extends RunnableSimpleTrait {
         if (blockLocation <= player.getLocation().getY() && !player.isInvisible()) {
             player.setFireTicks(60);
         }
+    }
+
+    @Override
+    protected void onDisable(Player player) {
+        player.setFireTicks(0);
     }
 }

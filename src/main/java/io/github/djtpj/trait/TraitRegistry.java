@@ -1,6 +1,7 @@
 package io.github.djtpj.trait;
 
 import io.github.djtpj.gui.ItemIcon;
+import lombok.experimental.UtilityClass;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.reflections.Reflections;
@@ -20,6 +21,7 @@ import static io.github.djtpj.origin.Main.plugin;
 /**
  * Static Registry of all the {@link Trait}s' classes as gotten by a static reflection call
  */
+@UtilityClass
 public class TraitRegistry {
     public static final Class<? extends Trait>[] registry;
 

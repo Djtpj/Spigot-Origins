@@ -8,6 +8,7 @@ import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.entity.EntityPotionEffectEvent;
+import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
 import org.json.simple.JSONArray;
 
@@ -38,6 +39,9 @@ public class PotionImmunity extends SimpleTrait {
     @EventHandler
     public void preventEffect(EntityPotionEffectEvent event) {
         if (!new EntityAuthenticator(this).authenticate(event)) return;
+        PotionEffect newEffect = event.getNewEffect();
+
+        if (newEffect == null) return;
 
         PotionEffectType type = event.getNewEffect().getType();
 

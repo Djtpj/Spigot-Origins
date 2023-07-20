@@ -375,6 +375,23 @@
           ],
           false
         ]
+      },
+
+      {
+        "id": "pacify-mob",
+        "icon": {
+          "name": "Kin",
+          "desc": "Your zombie brethren will not attack you.",
+          "color": "DARK_GREEN",
+          "material": "ROTTEN_FLESH"
+        },
+        "type": "POSITIVE",
+        "args": [
+          [
+            "ZOMBIE",
+            "ZOMBIE_VILLAGER"
+          ]
+        ]
       }
     ]
   }

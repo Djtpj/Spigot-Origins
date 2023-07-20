@@ -38,7 +38,7 @@ public class InteractionBlocker extends SimpleTrait {
 
     @EventHandler
     public void preventInteraction(PlayerInteractEvent event) {
-        if (!new InteractAuthenticator(false, false, this, actions).authenticate(event)) return;
+        if (!new InteractAuthenticator(true, false, this, actions).authenticate(event)) return;
 
         if (blockedMaterial != null && event.getItem().getType() == blockedMaterial) {
             event.setCancelled(true);

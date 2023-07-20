@@ -9,7 +9,6 @@ import org.bukkit.event.Listener;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.logging.Level;
 
 import static io.github.djtpj.origin.Main.plugin;
 
@@ -53,7 +52,7 @@ public abstract class Trait implements Listener {
     protected void register() {
         plugin.getServer().getPluginManager().registerEvents(this, plugin);
 
-        plugin.getLogger().log(Level.INFO, getID() + " registered as listener.");
+        // plugin.getLogger().log(Level.INFO, getID() + " registered as listener.");
     }
 
     public String getID() {

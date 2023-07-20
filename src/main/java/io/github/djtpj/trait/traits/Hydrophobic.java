@@ -37,10 +37,12 @@ public class Hydrophobic extends CompoundTrait {
     }
 
     private static boolean inRain(Player player) {
-        if (!player.getWorld().isThundering() && !player.getWorld().hasStorm()) return false;
+        boolean isRaining = player.getWorld().isThundering() || player.getWorld().hasStorm();
 
         int blockLocation = Objects.requireNonNull(player.getLocation().getWorld()).getHighestBlockYAt(player.getLocation());
 
-        return blockLocation <= player.getLocation().getY();
+        boolean isUnderBlock = blockLocation > player.getEyeLocation().getY();
+
+        return isRaining && !isUnderBlock;
     }
 }

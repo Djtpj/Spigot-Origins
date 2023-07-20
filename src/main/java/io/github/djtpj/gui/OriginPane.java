@@ -107,6 +107,7 @@ public class OriginPane implements Listener {
 
         if (event.getSlot() == BACK_BUTTON_INDEX) {
             new OriginPicker(player);
+            playerMap.remove(player);
             return;
         }
 
@@ -114,6 +115,7 @@ public class OriginPane implements Listener {
             Origin origin = playerMap.get(player).getOrigin();
             PlayerManager.getInstance().setOrigin(player, origin);
             player.closeInventory();
+            playerMap.remove(player);
         }
     }
 }

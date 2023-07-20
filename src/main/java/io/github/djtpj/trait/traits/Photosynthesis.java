@@ -26,10 +26,14 @@ public class Photosynthesis extends RunnableSimpleTrait {
 
             if (blockY <= player.getLocation().getY()) {
                 // Do not let the food level exceed the ceiling
-                final int FOOD_LEVEL_CEILING = 20, AMOUNT_TO_ADD = 2;
-                int newLevel = Math.min(FOOD_LEVEL_CEILING, player.getFoodLevel() + AMOUNT_TO_ADD);
+                final int FOOD_LEVEL_CEILING = 20, FOOD_INCREMENT = 2;
+                int newFood = Math.min(FOOD_LEVEL_CEILING, player.getFoodLevel() + FOOD_INCREMENT);
 
-                player.setFoodLevel(newLevel);
+                final float SATURATION_LEVEL_CEILING = 5.0f, SATURATION_INCREMENT = 0.5f;
+                float newSaturation = Math.min(SATURATION_LEVEL_CEILING, player.getSaturation() + FOOD_INCREMENT);
+
+                player.setFoodLevel(newFood);
+                player.setSaturation(newSaturation);
             }
         }
     }

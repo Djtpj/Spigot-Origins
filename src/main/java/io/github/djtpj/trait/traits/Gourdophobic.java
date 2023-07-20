@@ -20,12 +20,15 @@ public class Gourdophobic extends RunnableSimpleTrait {
         for (Player onlinePlayer : Bukkit.getOnlinePlayers()) {
             ItemStack helmet = onlinePlayer.getInventory().getHelmet();
 
-            if (helmet.getType() == Material.JACK_O_LANTERN) {
-                player.hidePlayer(plugin, onlinePlayer);
-            }
+            player.showPlayer(plugin, onlinePlayer);
 
-            else {
-                player.showPlayer(plugin, onlinePlayer);
+            if (helmet != null) {
+                Material type = helmet.getType();
+                final Material HIDING_ITEM = Material.CARVED_PUMPKIN;
+
+                if (type == HIDING_ITEM) {
+                    player.hidePlayer(plugin, onlinePlayer);
+                }
             }
         }
     }

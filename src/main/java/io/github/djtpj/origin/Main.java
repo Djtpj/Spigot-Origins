@@ -12,12 +12,14 @@ import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
+import org.reflections.Reflections;
+import org.reflections.scanners.Scanners;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
+import java.io.*;
 import java.lang.reflect.InvocationTargetException;
+import java.util.HashSet;
+import java.util.Set;
+import java.util.logging.Level;
 
 public final class Main extends JavaPlugin {
   public static JavaPlugin plugin;
@@ -46,6 +48,18 @@ public final class Main extends JavaPlugin {
       if (origin == null) continue;
 
       System.out.println(origin.getName());
+    }
+
+    var reflections = new Reflections("io.github.djtpj.origins", Scanners.Resources);
+    Set<String> results = new HashSet<>(reflections.getAll(Scanners.Resources));
+     
+    File[] list = results.stream().map(File::new)
+    .toArray(File[]::new);
+
+    getLogger().log(Level.INFO, list.length + ", " + results.size());
+
+    for (File file : list) {
+      getLogger().log(Level.INFO, file.getName());
     }
   }
 
