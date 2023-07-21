@@ -1,5 +1,21 @@
 [
   {
+    "id": "human",
+    "impact": "LOW",
+    "icon": {
+      "name": "Human",
+      "desc": "Normal vanilla Minecraft experience.",
+      "color": "WHITE",
+      "material": "PLAYER_HEAD"
+    },
+    "traits": [
+      {
+        "id": "normal"
+      }
+    ]
+  },
+
+  {
     "id": "avian",
     "impact": "LOW",
 

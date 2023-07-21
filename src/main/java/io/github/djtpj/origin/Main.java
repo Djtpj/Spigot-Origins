@@ -2,6 +2,7 @@ package io.github.djtpj.origin;
 
 import io.github.djtpj.PlayerManager;
 import io.github.djtpj.cmd.OriginCommand;
+import io.github.djtpj.cmd.OriginManageCommand;
 import io.github.djtpj.gui.OriginPane;
 import io.github.djtpj.gui.OriginPicker;
 import io.github.djtpj.trait.IllDefinedTraitException;
@@ -17,6 +18,7 @@ import org.reflections.scanners.Scanners;
 
 import java.io.*;
 import java.lang.reflect.InvocationTargetException;
+import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 import java.util.logging.Level;
@@ -33,6 +35,9 @@ public final class Main extends JavaPlugin {
 
     getCommand("origin").setExecutor(new OriginCommand());
     getCommand("origin").setTabCompleter(new OriginCommand());
+
+    getCommand("origin-manage").setExecutor(new OriginManageCommand());
+    getCommand("origin-manage").setTabCompleter(new OriginManageCommand());
 
     try {
       String json = getOriginJSON();
@@ -58,9 +63,7 @@ public final class Main extends JavaPlugin {
 
     getLogger().log(Level.INFO, list.length + ", " + results.size());
 
-    for (File file : list) {
-      getLogger().log(Level.INFO, file.getName());
-    }
+    Arrays.stream(list).forEach(f -> getLogger().log(Level.INFO, f.getName()));
   }
 
   @Override

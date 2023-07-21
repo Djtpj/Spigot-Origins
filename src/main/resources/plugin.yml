@@ -8,11 +8,20 @@ description: A fun plugin that adds several new ways to play the game!
 
 commands:
   origin:
+    aliases: ["o"]
     description: The Spigot-Origins command to change your origin!
     usage: "Usage: /origin"
     permission: origin
+  origin-manage:
+    aliases: ["manage", "om"]
+    description: The Spigot-Origins command to manage players' ability to change origins.
+    usage: "Usage: /origin-manage <player> <action>"
+    permission: origin.manage
 
 permissions:
   origin:
     description: "Allows you to use the origin command."
     default: true
+  origin.manage:
+    description: "Allows you to allow and disallow players from using the /origin command."
+    default: op

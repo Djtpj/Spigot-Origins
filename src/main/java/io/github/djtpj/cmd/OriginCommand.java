@@ -2,6 +2,7 @@ package io.github.djtpj.cmd;
 
 import io.github.djtpj.gui.OriginPicker;
 import lombok.NonNull;
+import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -14,14 +15,17 @@ import java.util.List;
 public class OriginCommand implements CommandExecutor, TabCompleter {
     @Override
     public boolean onCommand(@NonNull CommandSender sender, @NonNull Command command, @NonNull String label, @NonNull String[] args) {
-        if (!(sender instanceof Player)) {
+        if (!(sender instanceof Player player)) {
             sender.sendMessage("This is a player only command!");
             return false;
         }
 
-        if (!label.equalsIgnoreCase("origin")) return true;
+        if (!player.hasPermission("origin")) {
+            sender.sendMessage(ChatColor.RED + "You do not have permission to use this command.");
+            return false;
+        }
 
-        new OriginPicker(((Player) sender));
+        new OriginPicker(player);
 
         return true;
     }
